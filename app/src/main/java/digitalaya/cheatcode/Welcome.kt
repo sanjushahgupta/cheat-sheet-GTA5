@@ -15,24 +15,30 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
+import digitalaya.cheatcode.screens.CheatCodesXbox
 
 @Composable
 fun Welcome(navController: NavController) {
-
+val modifier = Modifier
+    val popUp = remember {
+        mutableStateOf(true)
+    }
    Scaffold(topBar = {
     TopAppBar(modifier = Modifier.fillMaxWidth()) {
             Text(text = "Cheats for GTA 5")
         Spacer(Modifier.weight(1f))
            Icon(
                painter = painterResource(id = R.drawable.ic_baseline_settings_24),
-                contentDescription = "setting"
+                contentDescription = "setting",
+               modifier.clickable(
+                   MutableInteractionSource(),
+                   indication = null,
+                   onClick = { popUp.value = true })
             )
         }
     }) {
 
-val popUp = remember {
-    mutableStateOf(true)
-}
+
         Box(
             modifier = Modifier
                 .padding(20.dp)
@@ -43,6 +49,7 @@ val popUp = remember {
                 .fillMaxSize(), Alignment.Center
 
         ) {
+            CheatCodesXbox()
             if(popUp.value){
                PopupWindowDialog(navController)
             }
@@ -65,7 +72,7 @@ fun PopupWindowDialog(navController: NavController) {
             .padding(10.dp)
     ) {
         val gamesOption = listOf("PlayStation", "Xbox", "PC", "Phone")
-        val (selectedOptions, onOptionsSelected) = remember { mutableStateOf("") }
+        val (selectedOptions, onOptionsSelected) = remember { mutableStateOf(gamesOption[1]) }
 
         Column(
             modifier = Modifier
@@ -81,14 +88,14 @@ fun PopupWindowDialog(navController: NavController) {
                         .fillMaxWidth()
                         .selectable(selected = (text == selectedOptions),
                             onClick = { onOptionsSelected(text)
-                                navController.navigate("$text")})
+                                navController.navigate(text)})
                         .padding(16.dp)
                 ) {
 
                     val context = LocalContext.current
                     RadioButton(selected = (text == selectedOptions), onClick = {
                         onOptionsSelected(text)
-                        navController.navigate("$text")
+                        navController.navigate(text)
                     })
                     Text(text = text, modifier = Modifier.padding(10.dp))
 

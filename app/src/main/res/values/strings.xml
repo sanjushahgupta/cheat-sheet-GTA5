@@ -1,3 +1,109 @@
 <resources>
     <string name="app_name">Cheat Code</string>
+
+    //XBox
+    <string name="Invincibility">Invincibility</string>
+    <string name="InvincibilityDetails">RIGHT, A, RIGHT, LEFT, RIGHT, RB, RIGHT, LEFT, A, Y</string>
+
+    <string name="MaxHealthandArmor">Max Health and Armor</string>
+    <string name="MaxHealthandArmorDetails">B, LB, Y, RT, A, X, B, RIGHT, X, LB, LB, LB</string>
+
+    <string name="RaiseWantedLevel">Raise Wanted Level</string>
+    <string name="RaiseWantedLevelDetails">RB, RB, B, RT, LEFT, RIGHT, LEFT, RIGHT, LEFT, RIGHT</string>
+
+    <string name="LowerWantedLevel">Lower Wanted Level</string>
+    <string name="LowerWantedLevelDetails">RB, RB, B, RT, RIGHT, LEFT, RIGHT, LEFT, RIGHT, LEFT</string>
+
+    <string name="FastRun">Fast Run</string>
+    <string name="FastRunDetails">Y, LEFT, RIGHT, RIGHT, LT, LB, X</string>
+
+    <string name="FastSwim">Fast Swim</string>
+    <string name="FastSwimDetails">LEFT LEFT LB RIGHT RIGHT RT LEFT LT RIGHT</string>
+
+    <string name="SuperJump">Super Jump</string>
+    <string name="SuperJumpDetails">LEFT, LEFT, Y, Y, RIGHT, RIGHT, LEFT, RIGHT, X, RB, RT</string>
+
+    <string name="MoonGravity">Moon Gravity</string>
+    <string name="MoonGravityDetails">LEFT, LEFT, LB, RB, LB, RIGHT, LEFT, LB, LEFT</string>
+
+    <string name="RechargeAbility">Recharge Ability</string>
+    <string name="RechargeAbilityDetails">A, A, X, RB, LB, A, RIGHT, LEFT, A</string>
+
+    <string name="Skyfall">Skyfall</string>
+    <string name="SkyfallDetails">LB, LT, RB, RT, LEFT, RIGHT, LEFT, RIGHT, LB, LT, RB, RT, LEFT, RIGHT, LEFT, RIGHT</string>
+
+    <string name="ExplosiveMeleeAttacks">Explosive Melee Attacks</string>
+    <string name="ExplosiveMeleeAttacksDetails">RIGHT, LEFT, A, Y, RB, B, B, B, LT</string>
+
+    <string name="ExplosiveBullets">Bang Bang(ExplosiveBullets)</string>
+    <string name="ExplosiveBulletsDetails">RIGHT, X, A, LEFT, RB, RT, LEFT, RIGHT, RIGHT, LB, LB, LB</string>
+
+    <string name="FlamingBullets">Flaming Bullets</string>
+    <string name="FlamingBulletsDetails">LB, RB, X, RB, LEFT, RT, RB, LEFT, X, RIGHT, LB, LB</string>
+
+
+    <string name="SlowMotionAim">Slow Motion Aim</string>
+    <string name="SlowMotionAimDetails">X, LT, RB, Y, LEFT, X, LT, RIGHT, A</string>
+
+    <string name="DrunkMode">Drunk Mode</string>
+    <string name="DrunkModeDetails">Y, RIGHT, RIGHT, LEFT, RIGHT, X, B, LEFT</string>
+
+
+    <string name="Weapons">Give Weapons and Ammo</string>
+    <string name="WeaponsDetails">Y, RT, LEFT, LB, A, RIGHT, Y, DOWN, X, LB, LB, LB</string>
+
+    <string name="GiveParachute">Drunk Mode</string>
+    <string name="GiveParachuteDetails">LEFT, RIGHT, LB, LT, RB, RT, RT, LEFT, LEFT, RIGHT, LB</string>
+
+
+    <string name="SpawnBuzzard">Spawn Buzzard</string>
+    <string name="SpawnBuzzardDetails"> B, B, LB, B, B, B, LB, LT, RB, Y, B, Y</string>
+
+    <string name="SpawnComet">Spawn Comet</string>
+    <string name="SpawnCometDetails">RB, B, RT, RIGHT, LB, LT, A, A, X, RB</string>
+
+    <string name="SpawnSanchez">Spawn Sanchez</string>
+    <string name="SpawnSanchezDetails">B, A, LB, B, B, LB, B, RB, RT, LT, LB, LB</string>
+
+    <string name="SpawnTrashmaster">Spawn Trashmaster</string>
+    <string name="SpawnTrashmasterDetails">B, RB, B, RB, LEFT, LEFT, RB, LB, B, RIGHT</string>
+
+    <string name="SpawnLimo">Spawn Limo</string>
+    <string name="SpawnLimoDetails">RT, RIGHT, LT, LEFT, LEFT, RB, LB, B, RIGHT</string>
+
+
+    <string name="SpawnStuntPlane">Spawn Stunt Plane</string>
+    <string name="SpawnStuntPlaneDetails">B, RIGHT, LB, LT, LEFT, RB, LB, LB, LEFT, LEFT, A, Y</string>
+
+    <string name="SpawnCaddy">Spawn Caddy</string>
+    <string name="SpawnCaddyDetails">B, LB, LEFT, RB, LT, A, RB, LB, B, A</string>
+
+
+    <string name="SpawnRapidGT">Spawn Rapid GT</string>
+    <string name="SpawnRapidGTDetails">RT, LB, B, RIGHT, LB, RB, RIGHT, LEFT, B, RT</string>
+
+    <string name="SpawnDuster">Spawn Duster</string>
+    <string name="SpawnDusterDetails">RIGHT, LEFT, RB, RB, RB, LEFT, Y, Y, A, B, LB, LB</string>
+
+    <string name="SpawnPCJ">Spawn PCJ-600</string>
+    <string name="SpawnPCJDetails">RB, RIGHT, LEFT, RIGHT, RT, LEFT, RIGHT, X, RIGHT, LT, LB, LB</string>
+
+
+    <string name="SpawnBMX">Spawn BMX</string>
+    <string name="SpawnBMXDetails">LEFT, LEFT, RIGHT, RIGHT, LEFT, RIGHT, X, B, Y, RB, RT</string>
+
+    <string name="ChangeWeather">Change Weather</string>
+    <string name="ChangeWeatherDetails">RT, A, LB, LB, LT, LT, LT, X</string>
+
+    <string name="SlideyCars">Slidey Cars</string>
+    <string name="SlideyCarsDetails"> Y, RB, RB, LEFT, RB, LB, RT, LB</string>
+
+    <string name="SlowMotion">Slow Motion</string>
+    <string name="SlowMotionDetails">Y, LEFT, RIGHT, RIGHT, X, RT, RB</string>
+
+
+    //PC
+
+
+
 </resources>
