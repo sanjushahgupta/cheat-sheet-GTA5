@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="InvincibilityPc">Invincibility</string>
+    <string name="InvincibilityPcDetails">PAINKILLER</string>
+    <string name="TURTLEPc">Max Health And Armour</string>
+    <string name="TURTLEPcDetails">TURTLE</string>
+    <string name="SuperJumpPc">Super Jump</string>
+    <string name="SuperJumpPcDetails">HOPTOIT</string>
+    <string name="FLOATERPc">Moon Gravity</string>
+    <string name="FLOATERPcDetails">FLOATER</string>
+    <string name="FUGITIVEPc">Raise Wanted Level</string>
+    <string name="FUGITIVEPcDetails">FUGITIVE</string>
+    <string name="LAWYERUPPc">Lower Wanted Level</string>
+    <string name="LAWYERUPPcDetails">LAWYERUP</string>
+    <string name="CATCHMEPc">Fast Run</string>
+    <string name="CATCHMEPcDetails">CATCHME</string>
+    <string name="GOTGILLSPc">Fast Swim</string>
+    <string name="GOTGILLSPcDetails">GOTGILLS</string>
+    <string name="POWERUPPc">Special Ability Recharge </string>
+    <string name="POWERUPPcDetails">POWERUP</string>
+    <string name="SKYFALLPc">Skyfall</string>
+    <string name="SKYFALLPcDetails">SKYFALL</string>
+    <string name="HOTHANDSPc">Explosive Melee Attacks</string>
+    <string name="HOTHANDSPcDetails">HOTHANDS</string>
+    <string name="HIGHEXPc">Bang Bang(Explosive Bullets)</string>
+    <string name="HIGHEXPcDetails">HIGHEX</string>
+    <string name="INCENDIARYPc">Flaming Bullets</string>
+    <string name="INCENDIARYPcDetails">INCENDIARY</string>
+    <string name="MAKEITRAINPc">Change Weather</string>
+    <string name="MAKEITRAINPcDetails">MAKEITRAIN</string>
+    <string name="SNOWDAYPc">Slidey Cars</string>
+    <string name="SNOWDAYPcDetails">SNOWDAY</string>
+    <string name="SLOWMOPc">Slow Motion</string>
+    <string name="SLOWMOPcDetails">SLOWMO</string>
+    <string name="TOOLUPPc">Give Weapons And Ammo</string>
+    <string name="TOOLUPPcDetails">TOOLUP</string>
+    <string name="DEADEYEPc">Slow Motion Aim</string>
+    <string name="DEADEYEPcDetails">DEADEYE</string>
+    <string name="LIQUORPc">Drunk Mode</string>
+    <string name="LIQUORPcDetails">LIQUOR</string>
+    <string name="SKYDIVEPc">Get Parachute</string>
+    <string name="SKYDIVEPcDetails"> SKYDIVE</string>
+    <string name="BUZZOFFPc">Spawn Buzzard (Attack Helicopter)</string>
+    <string name="BUZZOFFPcDetails">BUZZOFF</string>
+    <string name="COMETPc">Spawn Comet</string>
+    <string name="COMETPcDetails">COMET</string>
+    <string name="OFFROADPc">Spawn Sanchez</string>
+    <string name="OFFROADPcDetails">OFFROAD</string>
+    <string name="TRASHEDPc">Spawn Trashmaster</string>
+    <string name="TRASHEDPcDetails">TRASHED</string>
+    <string name="VINEWOODPc">Spawn Limo</string>
+    <string name="VINEWOODPcDetails">VINEWOOD</string>
+    <string name="BARNSTORMPc">Spawn Stunt Plane</string>
+    <string name="BARNSTORMPcDetails">BARNSTORM</string>
+    <string name="HOLEIN1Pc">Spawn Caddy</string>
+    <string name="HOLEIN1PcDetails">HOLEIN1</string>
+    <string name="RAPIDGTPc">Spawn Rapid GT</string>
+    <string name="RAPIDGTPcDetails">RAPIDGT</string>
+    <string name="FLYSPRAYPc">Spawn Duster</string>
+    <string name="FLYSPRAYPcDetails">FLYSPRAY</string>
+    <string name="ROCKETPc">Spawn PCJ</string>
+    <string name="ROCKETPcDetails">ROCKET</string>
+    <string name="BANDITPc">Spawn BMX</string>
+    <string name="BANDITPcDetails">BANDIT</string>
+
+</resources>

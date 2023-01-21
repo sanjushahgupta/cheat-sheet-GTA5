@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Cheat Code</string>
+    <string name="app_name">GTA 5 Codes</string>
 
     //XBox
     <string name="Invincibility">Invincibility</string>
@@ -101,8 +101,6 @@
     <string name="SlowMotion">Slow Motion</string>
     <string name="SlowMotionDetails">Y, LEFT, RIGHT, RIGHT, X, RT, RB</string>
 
-
-    //PC
 
 
 

@@ -5,74 +5,28 @@ import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.selection.selectable
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
-import digitalaya.cheatcode.PopupWindowDialog
 import digitalaya.cheatcode.R
 
 
 @Composable
 fun Xbox(navController: NavController) {
     val modifier = Modifier
-    val popUpState = remember { mutableStateOf(false) }
-    Scaffold(topBar = {
-        TopAppBar(modifier.fillMaxWidth()) {
-            Column {
-                Text(
-                    text = "Cheats for GTA 5",
-                    modifier.padding(bottom = 5.dp),
-                    fontWeight = FontWeight.Bold
-                )
-                Text(text = "Xbox", modifier.padding(bottom = 5.dp))
-            }
-
-            Spacer(modifier.weight(1f))
-
-            Icon(
-                painter = painterResource(id = R.drawable.ic_baseline_settings_24),
-                contentDescription = "",
-                modifier.clickable(MutableInteractionSource(),
-                    indication = null,
-                    onClick = { popUpState.value = true })
-            )
-
-        }
-    }) {
-
-        Box(
-            modifier
-                .fillMaxSize()
-                .padding(20.dp)
-                .clickable(MutableInteractionSource(),
-                    indication = null,
-                    onClick = { popUpState.value = false })
-                .fillMaxSize()
-        ) {
-
-            CheatCodesXbox()
-            if (popUpState.value) {
-                PopupWindowDialog(navController)
-            }
-
-        }
-
-
-    }
-}
-
-@Composable
-fun CheatCodesXbox() {
-
     val xboxList = listOf(
         stringResource(R.string.Invincibility),
         stringResource(R.string.MaxHealthandArmor),
@@ -137,6 +91,57 @@ fun CheatCodesXbox() {
         stringResource(R.string.SlideyCarsDetails),
         stringResource(R.string.SlowMotionDetails)
     )
+    val popUpState = remember { mutableStateOf(true) }
+    Scaffold(topBar = {
+        TopAppBar(modifier.fillMaxWidth()) {
+            Column {
+                Text(
+                    text = "Cheats for GTA 5",
+                    modifier.padding(start = 20.dp,bottom = 5.dp),
+                    fontWeight = FontWeight.Bold
+                )
+                Text(text = "Xbox", modifier.padding(start = 20.dp,bottom = 5.dp))
+            }
+
+            Spacer(modifier.weight(1f))
+
+            Icon(
+                painter = painterResource(id = R.drawable.ic_baseline_settings_24),
+                contentDescription = "",
+                modifier.clickable(MutableInteractionSource(),
+                    indication = null,
+                    onClick = { popUpState.value = true })
+            )
+
+        }
+    }) {
+
+        Box(
+            modifier
+                .fillMaxSize()
+                .padding(20.dp)
+                .clickable(MutableInteractionSource(),
+                    indication = null,
+                    onClick = { popUpState.value = false })
+                .fillMaxSize()
+        ) {
+
+
+            CheatCode(xboxList,xboxListDetails)
+            if (popUpState.value) {
+                PopupWindowDialog(navController, popUpState, 1)
+            }
+
+        }
+
+
+    }
+}
+
+@Composable
+fun CheatCode(listOfCodes: List<String>, listOfCodesDetails: List<String> ) {
+
+
     var Index = 0
     val detailsStatus = remember {
         mutableStateOf(false)
@@ -147,29 +152,28 @@ fun CheatCodesXbox() {
         modifier = Modifier.fillMaxSize()
     ) {
         LazyColumn {
-            items(xboxList) { item ->
+            items(listOfCodes) { item ->
                 Divider()
-                // detailsStatus.value = false
+
                 Column(modifier = Modifier
                     .fillMaxSize()
                     .fillMaxWidth()
                     .clickable {
-                        Index = xboxList.indexOf(item)
+
 
                         detailsStatus.value = !detailsStatus.value
                     }) {
 
                     Text(text = item, modifier = Modifier
-                        .padding(10.dp)
+                        .padding(5.dp)
                         .clickable {
-                            Index = xboxList.indexOf(item)
+                            Index = listOfCodes.indexOf(item)
 
-                            detailsStatus.value = !detailsStatus.value
+                            // detailsStatus.value = !detailsStatus.value
                         })
+                    Index = listOfCodes.indexOf(item)
+                    PopUpdetails(listOfCodesDetails, Index)
 
-                    if (detailsStatus.value) {
-                        PopUpdetails(xboxListDetails, Index)
-                    }
 
                 }
                 Divider()
@@ -184,30 +188,92 @@ fun CheatCodesXbox() {
 }
 
 @Composable
-fun PopUpdetails(xboxListDetails: List<String>, Index: Int) {
+fun PopUpdetails(listOfCodesDetails: List<String>, Index: Int) {
 
-    val valueOfXboxIndex = xboxListDetails[Index]
+    val valueOfIndex = listOfCodesDetails[Index]
     val cardStatus = remember {
         mutableStateOf(true)
     }
 
-    if (cardStatus.value) {
+
         Card(elevation = 30.dp,
             shape = RoundedCornerShape(15.dp),
             modifier = Modifier
                 .fillMaxWidth()
                 .wrapContentHeight()
-                .clickable { cardStatus.value = false }
-                .padding(top = 10.dp, bottom = 10.dp),
+                .padding(bottom = 5.dp),
             backgroundColor = Color.LightGray
 
         ) {
             Text(
-                text = valueOfXboxIndex, modifier = Modifier.padding(15.dp), fontWeight = FontWeight.Bold
+                text = valueOfIndex,
+                modifier = Modifier.padding(5.dp),
+                fontWeight = FontWeight.Bold
             )
 
         }
 
-    }
 
+
+}
+
+
+@Composable
+fun PopupWindowDialog(navController: NavController, popUpShow: MutableState<Boolean>, platformIndex:Int) {
+    var popupShow = remember {
+        mutableStateOf(popUpShow)
+    }
+    if (popupShow.value.value) {
+        Card(
+            elevation = 20.dp,
+            shape = RoundedCornerShape(21.dp),
+            modifier = Modifier
+                .wrapContentHeight()
+                .wrapContentWidth()
+                .padding(10.dp)
+        ) {
+            val gamesOption = listOf("PlayStation", "Xbox", "PC", "Phone")
+            val (selectedOptions, onOptionsSelected) = remember { mutableStateOf(gamesOption[platformIndex]) }
+
+            Column(
+                modifier = Modifier
+                    .width(400.dp)
+                    .wrapContentHeight()
+                    .padding(20.dp),
+                horizontalAlignment = Alignment.CenterHorizontally,
+                verticalArrangement = Arrangement.Center
+            ) {
+                gamesOption.forEach { text ->
+                    Row(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .selectable(selected = (text == selectedOptions),
+                                onClick = {
+                                    onOptionsSelected(text)
+                                    navController.navigate(text)
+                                })
+                            .padding(16.dp)
+                    ) {
+
+                        val context = LocalContext.current
+                        RadioButton(selected = (text == selectedOptions), onClick = {
+                            onOptionsSelected(text)
+                            navController.navigate(text)
+                        })
+                        Text(text = text, modifier = Modifier.padding(10.dp))
+
+                    }
+
+                }
+
+                Button(onClick = { popupShow.value.value = false }, Modifier.align(Alignment.End), colors = ButtonDefaults.buttonColors(
+                    Color.Cyan
+                )
+                    ) {
+                    Text("Cancel")
+
+                }
+            }
+        }
+    }
 }

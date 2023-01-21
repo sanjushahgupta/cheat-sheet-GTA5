@@ -14,7 +14,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
-import digitalaya.cheatcode.PopupWindowDialog
+
 import digitalaya.cheatcode.R
 
 
@@ -44,7 +44,7 @@ fun Phone(navController: NavController) {
             .fillMaxSize()){
             Text("Phone")
             if(popUpState.value){
-                PopupWindowDialog(navController)
+                PopupWindowDialog(navController,popUpState,3)
             }
 
         }
