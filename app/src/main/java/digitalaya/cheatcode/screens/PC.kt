@@ -1,20 +1,7 @@
 package digitalaya.cheatcode.screens
 
-import androidx.compose.foundation.clickable
-import androidx.compose.foundation.interaction.MutableInteractionSource
-import androidx.compose.foundation.layout.*
-import androidx.compose.material.Icon
-import androidx.compose.material.Scaffold
-import androidx.compose.material.Text
-import androidx.compose.material.TopAppBar
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.ui.Alignment
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import digitalaya.cheatcode.R
 
@@ -93,7 +80,7 @@ fun PC(navController: NavController) {
         title = "PC",
         xboxList = PCList,
         xboxListDetails = PCListDetails,
-        Index = 2
+        Index = "2"
     )
 
 

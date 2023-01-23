@@ -1,19 +1,7 @@
 package digitalaya.cheatcode.screens
 
-import androidx.compose.foundation.clickable
-import androidx.compose.foundation.interaction.MutableInteractionSource
-import androidx.compose.foundation.layout.*
-import androidx.compose.material.Icon
-import androidx.compose.material.Scaffold
-import androidx.compose.material.Text
-import androidx.compose.material.TopAppBar
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 
 import digitalaya.cheatcode.R
@@ -89,7 +77,7 @@ fun Phone(navController: NavController) {
         stringResource(R.string.SlideyCarsPhoneDetails),
         stringResource(R.string.SlowMotionPhoneDetails))
     val title = "Phone"
-    Scaffold(navController,title,PhoneList, PhoneListDetails, 3)
+    Scaffold(navController,title,PhoneList, PhoneListDetails, "3")
 
 
 }
