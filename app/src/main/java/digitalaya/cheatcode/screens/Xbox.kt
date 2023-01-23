@@ -25,8 +25,7 @@ import digitalaya.cheatcode.R
 
 
 @Composable
-fun Xbox(navController: NavController) {
-    val modifier = Modifier
+fun Xbox(navController: NavController){
     val xboxList = listOf(
         stringResource(R.string.Invincibility),
         stringResource(R.string.MaxHealthandArmor),
@@ -91,7 +90,15 @@ fun Xbox(navController: NavController) {
         stringResource(R.string.SlideyCarsDetails),
         stringResource(R.string.SlowMotionDetails)
     )
-    val popUpState = remember { mutableStateOf(true) }
+    val title = "Xbox"
+    Scaffold(navController,title,xboxList, xboxListDetails, 1)
+}
+
+@Composable
+fun Scaffold(navController: NavController, title: String, xboxList:List<String>, xboxListDetails:List<String>, Index : Int) {
+    val modifier = Modifier
+
+    val popUpState = remember { mutableStateOf(false) }
     Scaffold(topBar = {
         TopAppBar(modifier.fillMaxWidth()) {
             Column {
@@ -100,7 +107,7 @@ fun Xbox(navController: NavController) {
                     modifier.padding(start = 20.dp,bottom = 5.dp),
                     fontWeight = FontWeight.Bold
                 )
-                Text(text = "Xbox", modifier.padding(start = 20.dp,bottom = 5.dp))
+                Text(text = title, modifier.padding(start = 20.dp,bottom = 5.dp))
             }
 
             Spacer(modifier.weight(1f))
@@ -129,7 +136,7 @@ fun Xbox(navController: NavController) {
 
             CheatCode(xboxList,xboxListDetails)
             if (popUpState.value) {
-                PopupWindowDialog(navController, popUpState, 1)
+               PopupWindowDialog(navController, popUpState, Index)
             }
 
         }

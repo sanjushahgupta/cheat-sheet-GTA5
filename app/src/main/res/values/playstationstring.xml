@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="InvincibilityPf">Invincibility</string>
+    <string name="InvincibilityPfDetails">RIGHT, X, RIGHT, LEFT, RIGHT, R1, RIGHT, LEFT, X, TRIANGLE</string>
+    <string name="MaxHealthandArmorPf">Max Health and Armor</string>
+    <string name="MaxHealthandArmorPfDetails">CIRCLE, L1, TRIANGLE, R2, X, SQUARE, CIRCLE, RIGHT, SQUARE, L1, L1, L1</string>
+    <string name="MoonGravityPf">Moon Gravity</string>
+    <string name="MoonGravityPfDetails">LEFT, LEFT, L1, R1, L1, RIGHT, LEFT, L1, LEFT</string>
+    <string name="RaiseWantedLevelPf">Raise Wanted Level</string>
+    <string name="RaiseWantedLevelPfDetails">R1, R1, CIRCLE, R2, LEFT, RIGHT, LEFT, RIGHT, LEFT, RIGHT</string>
+    <string name="LowerWantedLevelPf">Lower Wanted Level</string>
+    <string name="LowerWantedLevelPfDetails">: R1, R1, CIRCLE, R2, RIGHT, LEFT, RIGHT, LEFT, RIGHT, LEFT</string>
+    <string name="FastRunPf">Fast Run</string>
+    <string name="FastRunPfDetails">TRIANGLE, LEFT, RIGHT, RIGHT, L2, L1, SQUARE</string>
+    <string name="SuperJumpPf">Super Jump</string>
+    <string name="SuperJumpPfDetails">LEFT, LEFT, TRIANGLE, TRIANGLE, RIGHT, RIGHT, LEFT, RIGHT, SQUARE, R1, R2  </string>
+    <string name="FastSwimPf">Fast Swim</string>
+    <string name="FastSwimPfDetails">LEFT, LEFT, L1, RIGHT, RIGHT, R2, LEFT, L2, RIGHT</string>
+    <string name="RechargeAbilityPf">Recharge Ability</string>
+    <string name="RechargeAbilityPfDetails">X, X, SQUARE, R1, L1, X, RIGHT, LEFT, X</string>
+    <string name="SkyfallPf">Skyfall</string>
+    <string name="SkyfallPfDetails">L1, L2, R1, R2, LEFT, RIGHT,LEFT, RIGHT,L1, L2, R1, R2,LEFT, RIGHT,LEFT, RIGHT  </string>
+    <string name="ExplosiveMeleeAttacksPf">Explosive Melee Attacks</string>
+    <string name="ExplosiveMeleeAttacksPfDetails">RIGHT, LEFT, X, TRIANGLE, R1, CIRCLE, CIRCLE, CIRCLE, L2</string>
+    <string name="BangBangPf">Bang Bang (Explosive Bullets)</string>
+    <string name="BangBangPfDetails">RIGHT, SQUARE, X, LEFT, R1, R2, LEFT, RIGHT, RIGHT, L1, L1, L1</string>
+    <string name="FlamingBulletsPf">Flaming Bullets</string>
+    <string name="FlamingBulletsPfPfDetails">L1, R1, SQUARE, R1, LEFT, R2, R1, LEFT, SQUARE, RIGHT, L1, L1</string>
+    <string name="SlowMotionAimPf">Slow Motion Aim</string>
+    <string name="SlowMotionAimPfDetails">SQUARE, L2, R1, TRIANGLE, LEFT, SQUARE, L2, RIGHT, X</string>
+    <string name="DrunkModePf">Drunk Mode</string>
+    <string name="DrunkModePfDetails">TRIANGLE, RIGHT, RIGHT, LEFT, RIGHT, SQUARE, CIRCLE, LEFT</string>
+    <string name="GiveWeaponsandAmmoPf">Give Weapons and Ammo</string>
+    <string name="GiveWeaponsandAmmoPfDetails">TRIANGLE, R2, LEFT, L1, X, RIGHT, TRIANGLE, DOWN, SQUARE, L1, L1, L1</string>
+    <string name="GiveParachutePf">Give Parachute</string>
+    <string name="GiveParachutePfDetails">LEFT, RIGHT, L1, L2, R1, R2, R2, LEFT, LEFT, RIGHT, L1</string>
+    <string name="SpawnBuzzardPf">Spawn Buzzard(Attack Helicopter)</string>
+    <string name="SpawnBuzzardPfDetails">CIRCLE, CIRCLE, L1, CIRCLE, CIRCLE, CIRCLE, L1, L2, R1, TRIANGLE, CIRCLE, TRIANGLE</string>
+    <string name="SpawnCometPf">Spawn Comet</string>
+    <string name="SpawnCometfPfDetails">R1, CIRCLE, R2, RIGHT, L1, L2, X, X, SQUARE, R1</string>
+    <string name="SpawnSanchezPf">Spawn Sanchez</string>
+    <string name="SpawnSanchezPfDetails">CIRCLE, X, L1, CIRCLE, CIRCLE, L1, CIRCLE, R1, R2, L2, L1, L1</string>
+    <string name="SpawnTrashmasterPf">Spawn Trashmaster</string>
+    <string name="SpawnTrashmasterfPfDetails">CIRCLE, R1, CIRCLE, R1, LEFT, LEFT, R1, L1, CIRCLE, RIGHT</string>
+    <string name="SpawnLimoPf">Spawn Limo</string>
+    <string name="SpawnLimoPfDetails">R2, RIGHT, L2, LEFT, LEFT, R1, L1, CIRCLE, RIGHT</string>
+    <string name="SpawnStuntPlanePf">Spawn Stunt Plane</string>
+    <string name="SpawnStuntPlanePfDetails"> CIRCLE, RIGHT, L1, L2, LEFT, R1, L1, L1, LEFT, LEFT, X, TRIANGLE</string>
+    <string name="SpawnCaddyPf">Spawn Caddy</string>
+    <string name="SpawnCaddyPfDetails">CIRCLE, L1, LEFT, R1, L2, X, R1, L1, CIRCLE, X</string>
+    <string name="SpawnRapidGTPf">SpawnRapidGT</string>
+    <string name="SpawnRapidGTPfDetails">R2, L1, CIRCLE, RIGHT, L1, R1, RIGHT, LEFT, CIRCLE, R2</string>
+    <string name="SpawnDusterPf">Spawn Duster</string>
+    <string name="SpawnDusterPfDetails">RIGHT, LEFT, R1, R1, R1, LEFT, TRIANGLE, TRIANGLE, X, CIRCLE, L1, L1</string>
+    <string name="SpawnPCJPf">Spawn PCJ</string>
+    <string name="SpawnPCJPfDetails">R1, RIGHT, LEFT, RIGHT, R2, LEFT, RIGHT, SQUARE, RIGHT, L2, L1, L1</string>
+    <string name="SpawnBMXPf">Spawn BMX</string>
+    <string name="SpawnBMXPfDetails">LEFT, LEFT, RIGHT, RIGHT, LEFT, RIGHT, SQUARE, CIRCLE, TRIANGLE, R1, R2</string>
+    <string name="SlideyCarsPf">Slidey Cars</string>
+    <string name="SlideyCarsPfDetails">TRIANGLE, R1, R1, LEFT, R1, L1, R2, L1</string>
+    <string name="SlowMotionPf">Slow Motion</string>
+    <string name="SlowMotionPfDetails">TRIANGLE, LEFT, RIGHT, RIGHT, SQUARE, R2, R1</string>
+    <string name="ChangeWeatherPf">Change Weather</string>
+    <string name="ChangeWeatherPfDetails">R2, X, L1, L1, L2, L2, L2, Square</string>
+
+</resources>

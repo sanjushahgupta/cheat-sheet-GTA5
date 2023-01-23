@@ -12,47 +12,84 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import digitalaya.cheatcode.R
 
 @Composable
 fun PlayStation(navController: NavController) {
+    val PlayStationList = listOf(
+        stringResource(R.string.InvincibilityPf),
+        stringResource(R.string.MaxHealthandArmorPf),
+        stringResource(R.string.SuperJumpPf),
+        stringResource(R.string.MoonGravityPf),
+        stringResource(R.string.RaiseWantedLevelPf),
+        stringResource(R.string.LowerWantedLevelPf),
+        stringResource(R.string.FastRunPf),
+        stringResource(R.string.FastSwimPf),
+        stringResource(R.string.RechargeAbilityPf),
+        stringResource(R.string.SkyfallPf),
+        stringResource(R.string.ExplosiveMeleeAttacksPf),
+        stringResource(R.string.BangBangPf),
+        stringResource(R.string.FlamingBulletsPf),
+        stringResource(R.string.SlowMotionAimPf),
+        stringResource(R.string.DrunkModePf),
+        stringResource(R.string.GiveWeaponsandAmmoPf),
+        stringResource(R.string.GiveParachutePf),
+        stringResource(R.string.SpawnBuzzardPf),
+        stringResource(R.string.SpawnCaddyPf),
+        stringResource(R.string.SpawnSanchezPf),
+        stringResource(R.string.SpawnTrashmasterPf),
+        stringResource(R.string.SpawnLimoPf),
+        stringResource(R.string.SpawnStuntPlanePf),
+        stringResource(R.string.SpawnCaddyPf),
+        stringResource(R.string.SpawnRapidGTPf),
+        stringResource(R.string.SpawnDusterPf),
+        stringResource(R.string.SpawnPCJPf),
+        stringResource(R.string.SpawnBMXPf),
+        stringResource(R.string.ChangeWeatherPf),
+        stringResource(R.string.SlideyCarsPf),
+        stringResource(R.string.SlowMotionPf),
 
-    var modifier = Modifier
-    val popUpState = remember { mutableStateOf(false) }
-    Scaffold(topBar = {
-        TopAppBar(modifier.fillMaxWidth()) {
-            Text(text = "Cheats for GTA5")
-            Spacer(modifier.weight(1f))
-            Icon(
-                painter = painterResource(id = R.drawable.ic_baseline_settings_24),
-                contentDescription = "", modifier.clickable(
-                    MutableInteractionSource(),
-                    indication = null,
-                    onClick = { popUpState.value = true })
-            )
+    )
+    val PlayStationListDetails = listOf(
+        stringResource(R.string.InvincibilityPfDetails),
+        stringResource(R.string.MaxHealthandArmorPfDetails),
+        stringResource(R.string.SuperJumpPfDetails),
+        stringResource(R.string.MoonGravityPfDetails),
+        stringResource(R.string.RaiseWantedLevelPfDetails),
+        stringResource(R.string.LowerWantedLevelPfDetails),
+        stringResource(R.string.FastRunPfDetails),
+        stringResource(R.string.FastSwimPfDetails),
+        stringResource(R.string.RechargeAbilityPfDetails),
+        stringResource(R.string.SkyfallPfDetails),
+        stringResource(R.string.ExplosiveMeleeAttacksPfDetails),
+        stringResource(R.string.BangBangPfDetails),
+        stringResource(R.string.FlamingBulletsPfPfDetails),
+        stringResource(R.string.SlowMotionAimPfDetails),
+        stringResource(R.string.DrunkModePfDetails),
+        stringResource(R.string.GiveWeaponsandAmmoPfDetails),
+        stringResource(R.string.GiveParachutePfDetails),
+        stringResource(R.string.SpawnBuzzardPfDetails),
+        stringResource(R.string.SpawnCaddyPfDetails),
+        stringResource(R.string.SpawnSanchezPfDetails),
+        stringResource(R.string.SpawnTrashmasterfPfDetails),
+        stringResource(R.string.SpawnLimoPfDetails),
+        stringResource(R.string.SpawnStuntPlanePfDetails),
+        stringResource(R.string.SpawnCaddyPfDetails),
+        stringResource(R.string.SpawnRapidGTPfDetails),
+        stringResource(R.string.SpawnDusterPfDetails),
+        stringResource(R.string.SpawnPCJPfDetails),
+        stringResource(R.string.SpawnBMXPfDetails),
+        stringResource(R.string.ChangeWeatherPfDetails),
+        stringResource(R.string.SlideyCarsPfDetails),
+        stringResource(R.string.SlowMotionPfDetails))
+
+    val title = "PlayStation"
+    Scaffold(navController,title,PlayStationList, PlayStationListDetails, 0)
 
 
-        }
-    }) {
 
-        Box(
-            modifier
-                .fillMaxSize()
-                .padding(20.dp)
-                .clickable(
-                    MutableInteractionSource(),
-                    indication = null,
-                    onClick = { popUpState.value = false })
-                .fillMaxSize()
-        ) {
-            Text("PlayStation")
-            if (popUpState.value) {
-                PopupWindowDialog(navController, popUpState,0)
-            }
-
-        }
-    }
 
 }
