@@ -7,6 +7,7 @@ import digitalaya.cheatcode.R
 
 @Composable
 fun PlayStation(navController: NavController) {
+
     val PlayStationList = listOf(
         stringResource(R.string.InvincibilityPf),
         stringResource(R.string.MaxHealthandArmorPf),
@@ -40,7 +41,7 @@ fun PlayStation(navController: NavController) {
         stringResource(R.string.SlideyCarsPf),
         stringResource(R.string.SlowMotionPf),
 
-    )
+        )
     val PlayStationListDetails = listOf(
         stringResource(R.string.InvincibilityPfDetails),
         stringResource(R.string.MaxHealthandArmorPfDetails),
@@ -72,12 +73,11 @@ fun PlayStation(navController: NavController) {
         stringResource(R.string.SpawnBMXPfDetails),
         stringResource(R.string.ChangeWeatherPfDetails),
         stringResource(R.string.SlideyCarsPfDetails),
-        stringResource(R.string.SlowMotionPfDetails))
+        stringResource(R.string.SlowMotionPfDetails)
+    )
 
     val title = "PlayStation"
-    Scaffold(navController,title,PlayStationList, PlayStationListDetails)
-
-
+    Scaffold(navController, title, PlayStationList, PlayStationListDetails)
 
 
 }

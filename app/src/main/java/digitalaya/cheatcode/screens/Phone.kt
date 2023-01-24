@@ -43,8 +43,7 @@ fun Phone(navController: NavController) {
         stringResource(R.string.SlowMotionPhone),
 
         )
-
-    val PhoneListDetails =  listOf(
+    val PhoneListDetails = listOf(
         stringResource(R.string.InvincibilityPhoneDetails),
         stringResource(R.string.MaxHealthandArmorPhoneDetails),
         stringResource(R.string.SuperJumpPhoneDetails),
@@ -75,9 +74,11 @@ fun Phone(navController: NavController) {
         stringResource(R.string.SpawnBMXPhoneDetails),
         stringResource(R.string.ChangeWeatherPhoneDetails),
         stringResource(R.string.SlideyCarsPhoneDetails),
-        stringResource(R.string.SlowMotionPhoneDetails))
+        stringResource(R.string.SlowMotionPhoneDetails)
+    )
+
     val title = "Phone"
-    Scaffold(navController,title,PhoneList, PhoneListDetails)
+    Scaffold(navController, title, PhoneList, PhoneListDetails)
 
 
 }

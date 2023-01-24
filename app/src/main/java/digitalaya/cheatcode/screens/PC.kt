@@ -7,6 +7,7 @@ import digitalaya.cheatcode.R
 
 @Composable
 fun PC(navController: NavController) {
+
     val PCList = listOf(
         stringResource(R.string.InvincibilityPc),
         stringResource(R.string.TURTLEPc),
@@ -75,12 +76,16 @@ fun PC(navController: NavController) {
         stringResource(R.string.SNOWDAYPcDetails),
         stringResource(R.string.SLOWMOPcDetails)
     )
+
+
     digitalaya.cheatcode.screens.Scaffold(
         navController = navController,
         title = "PC",
-    list = PCList,
+
+        list = PCList,
         listDetails = PCListDetails,
-    )
+
+        )
 
 
 }

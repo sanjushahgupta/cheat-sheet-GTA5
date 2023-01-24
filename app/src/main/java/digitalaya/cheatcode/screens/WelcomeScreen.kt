@@ -1,12 +1,10 @@
 package digitalaya.cheatcode.screens
 
 import android.annotation.SuppressLint
-import android.widget.Toast
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.selection.selectable
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.Card
 import androidx.compose.material.RadioButton
 import androidx.compose.material.RadioButtonDefaults
 import androidx.compose.material.Text
@@ -22,6 +20,7 @@ import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import digitalaya.cheatcode.R
 import digitalaya.cheatcode.UserPreference
@@ -32,23 +31,29 @@ import kotlinx.coroutines.launch
 @SuppressLint("CoroutineCreationDuringComposition")
 @Composable
 fun WelcomeScreen(navController: NavController) {
+
     val context = LocalContext.current
     val scope = rememberCoroutineScope()
     val dataStore = UserPreference(context)
     Column(
         modifier = Modifier
             .fillMaxWidth()
-            .fillMaxHeight()
-            .padding(10.dp),
+            .fillMaxHeight(0.7f)
+            .padding(start = 10.dp, end = 10.dp),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
+
         androidx.compose.foundation.Image(
-            painter = painterResource(id = R.drawable.ic_launcher_foreground_gtaa),
-            contentDescription = ""
-        )
+            painter = painterResource(id = R.drawable.gtalogoo),
+            contentDescription = "",
+
+            )
+        Text("Cheat codes for GTA 5", color = colorResource(id = R.color.teal_200))
+        Spacer(modifier = Modifier.padding(top = 30.dp))
         var status = remember { mutableStateOf(false) }
-        val context = LocalContext.current
+
+
         scope.launch {
             dataStore.platformIndexStatus.collect {
                 val platform = it.toString()
@@ -56,18 +61,17 @@ fun WelcomeScreen(navController: NavController) {
                 async {
                     delay(700)
 
-                    if (platform.equals("0")) {
+                    if (platform.equals("PlayStation")) {
                         navController.navigate("PlayStation")
-                    } else if (platform.equals("1")) {
+                    } else if (platform.equals("Xbox")) {
                         navController.navigate("Xbox")
-                    } else if (platform.equals("2")) {
+                    } else if (platform.equals("PC")) {
                         navController.navigate("PC")
-                    } else if (platform.equals("3")) {
+                    } else if (platform.equals("Phone")) {
                         navController.navigate("Phone")
-                    }else{
+                    } else {
                         status.value = true
                     }
-                     //    Toast.makeText(context, platform, Toast.LENGTH_SHORT).show()
 
                 }.await()
 
@@ -92,13 +96,13 @@ fun PopupWindowDialogWelcome(navController: NavController) {
 
 
 
-    Card(
-        elevation = 20.dp,
-        shape = RoundedCornerShape(21.dp),
+    Column(
         modifier = Modifier
             .wrapContentHeight()
             .wrapContentWidth()
-            .padding(10.dp)
+            .padding(start = 10.dp, end = 10.dp, top = 20.dp),
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.Center
 
     ) {
 
@@ -108,60 +112,53 @@ fun PopupWindowDialogWelcome(navController: NavController) {
             modifier = Modifier
                 .width(400.dp)
                 .wrapContentHeight()
-                .background(colorResource(id = R.color.teal_200))
-                .padding(20.dp),
+                .background(
+                    colorResource(id = R.color.teal_200), shape = RoundedCornerShape(18.dp)
+                ),
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Center
         ) {
-            Text("Choose platform", color = Color.White, fontWeight = FontWeight.Bold)
+            Text(
+                "Select platform",
+                color = Color.White,
+                fontWeight = FontWeight.Bold,
+                fontSize = 17.sp,
+                modifier = Modifier.padding(top = 17.dp, bottom = 15.dp)
+            )
 
             gamesOption.forEach { text ->
                 Row(
                     modifier = Modifier
                         .fillMaxWidth()
-                        .selectable(selected = (text == selectedOptions),
-                            onClick = {
-                                onOptionsSelected(text)
+                        .selectable(selected = (text == selectedOptions), onClick = {
+                            onOptionsSelected(text)
+                            //    Toast.makeText(context, text, Toast.LENGTH_SHORT).show()
+                            scope.launch {
+                                dataStore.savePlatformIndexStatus(text)
                                 navController.navigate(text)
-                            })
-                        .padding(16.dp)
+                            }
+
+                        })
+
                 ) {
 
                     RadioButton(
                         selected = (text == selectedOptions), onClick = {
                             onOptionsSelected(text)
-
-                            if (text.equals("PlayStation")) {
-                                scope.launch {
-                                    dataStore.savePlatformIndexStatus("0")
-                                }
-                                navController.navigate(text)
-                            } else if (text.equals("Xbox")) {
-                                scope.launch {
-                                    dataStore.savePlatformIndexStatus("1")
-                                }
-                                navController.navigate(text)
-                            } else if (text.equals("PC")) {
-                                scope.launch {
-                                    dataStore.savePlatformIndexStatus("2")
-                                }
-                                navController.navigate(text)
-                            } else if (text.equals("Phone")) {
-                                scope.launch {
-                                    dataStore.savePlatformIndexStatus("3")
-                                }
-                                navController.navigate(text)
-                            }
-
-
                         }, colors = RadioButtonDefaults.colors(unselectedColor = Color.White)
                     )
 
-                  Text(text = text, modifier = Modifier.padding(10.dp), color = Color.White)
+                    Text(
+                        text = text,
+                        modifier = Modifier.padding(top = 12.dp),
+                        color = Color.White,
+                        fontWeight = FontWeight.SemiBold
+                    )
 
                 }
 
             }
+            Spacer(modifier = Modifier.padding(bottom = 15.dp))
 
         }
     }

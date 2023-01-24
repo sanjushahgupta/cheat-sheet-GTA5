@@ -21,17 +21,20 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.font.FontWeight.Companion.Bold
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.compose.ui.window.Dialog
 import androidx.navigation.NavController
 import digitalaya.cheatcode.R
 import digitalaya.cheatcode.UserPreference
 import kotlinx.coroutines.launch
 
-@SuppressLint("UnusedMaterialScaffoldPaddingParameter", "CoroutineCreationDuringComposition",
-    "SuspiciousIndentation")
+@SuppressLint(
+    "UnusedMaterialScaffoldPaddingParameter", "CoroutineCreationDuringComposition",
+    "SuspiciousIndentation"
+)
 
 @Composable
-fun Xbox(navController: NavController){
+fun Xbox(navController: NavController) {
     val xboxList = listOf(
         stringResource(R.string.Invincibility),
         stringResource(R.string.MaxHealthandArmor),
@@ -97,24 +100,33 @@ fun Xbox(navController: NavController){
         stringResource(R.string.SlowMotionDetails)
     )
     val title = "Xbox"
-    Scaffold(navController,title,xboxList, xboxListDetails)
+    Scaffold(navController, title, xboxList, xboxListDetails)
 }
 
 @Composable
-fun Scaffold(navController: NavController, title: String,list:List<String>, listDetails:List<String>) {
+fun Scaffold(
+    navController: NavController,
+    title: String,
+    list: List<String>,
+    listDetails: List<String>,
+) {
 
     val modifier = Modifier
     val popUpState = remember { mutableStateOf(false) }
 
     Scaffold(topBar = {
         Divider(color = Color.Black)
-        TopAppBar(modifier.fillMaxWidth(),backgroundColor = colorResource(id = R.color.light_green)) {
+        TopAppBar(
+            modifier.fillMaxWidth(),
+            backgroundColor = colorResource(id = R.color.light_green)
+        ) {
 
-                Text(
-                    text = "Cheats for GTA 5 - $title",
-                    modifier.padding(start = 5.dp,bottom = 10.dp, top = 5.dp),
-                    fontWeight = FontWeight.Bold
-                )
+            Text(
+                text = "Cheats  for  GTA 5  -  $title",
+                modifier.padding(start = 15.dp, bottom = 10.dp, top = 5.dp),
+                fontWeight = FontWeight.Bold,
+                color = Color.White
+            )
 
 
             Spacer(modifier.weight(1f))
@@ -122,13 +134,16 @@ fun Scaffold(navController: NavController, title: String,list:List<String>, list
             Icon(
                 painter = painterResource(id = R.drawable.ic_baseline_settings_24),
                 contentDescription = "",
-                modifier.clickable(MutableInteractionSource(),
-                    indication = null,
-                    onClick = { popUpState.value = true })
+                modifier
+                    .clickable(MutableInteractionSource(),
+                        indication = null,
+                        onClick = { popUpState.value = true })
+                    .padding(end = 15.dp),
+                tint = Color.White
             )
 
         }
-    }){
+    }) {
         Box(
             modifier
                 .fillMaxSize()
@@ -141,18 +156,18 @@ fun Scaffold(navController: NavController, title: String,list:List<String>, list
                 .fillMaxSize()
         ) {
 
-            CheatCode(list,listDetails)
+            CheatCode(list, listDetails)
             if (popUpState.value) {
-             SettingDialogBox(navController, popUpState)
+                SettingDialogBox(navController, popUpState,title)
             }
         }
     }
 }
 
 @Composable
-fun CheatCode(listOfCodes: List<String>, listOfCodesDetails: List<String> ) {
+fun CheatCode(listOfCodes: List<String>, listOfCodesDetails: List<String>) {
 
-    var Indexx = remember{ mutableStateOf(55) }
+    var Indexx = remember { mutableStateOf(55) }
     val detailsStatus = remember {
         mutableStateOf(false)
     }
@@ -171,7 +186,7 @@ fun CheatCode(listOfCodes: List<String>, listOfCodesDetails: List<String> ) {
         LazyColumn {
 
 
-            items(listOfCodes) {item ->
+            items(listOfCodes) { item ->
 
 
                 Divider()
@@ -190,7 +205,9 @@ fun CheatCode(listOfCodes: List<String>, listOfCodesDetails: List<String> ) {
                         .clickable {
                             detailsStatus.value = true
                             Indexx.value = listOfCodes.indexOf(item)
-                        })
+                        }
+
+                    )
 
                 }
 
@@ -201,78 +218,107 @@ fun CheatCode(listOfCodes: List<String>, listOfCodesDetails: List<String> ) {
 
         }
 
-        }
-
     }
+
+}
 
 
 @OptIn(ExperimentalMaterialApi::class)
 @Composable
-fun DetailsDialogBox(listOfCodesDetails: List<String>, listOfCodes: List<String>, Index: Int, popUpShow: MutableState<Boolean>) {
+fun DetailsDialogBox(
+    listOfCodesDetails: List<String>,
+    listOfCodes: List<String>,
+    Index: Int,
+    popUpShow: MutableState<Boolean>
+) {
 
     var valueOfIndex = listOfCodesDetails[Index]
     var valueOfListIndex = listOfCodes[Index]
     var popupShow = remember {
         mutableStateOf(popUpShow)
     }
-if(popupShow.value.value){
-    Dialog(
-        onDismissRequest = {
-            popupShow.value.value = false
-        }
-    ) {
-
-
+    if (popupShow.value.value) {
+        Dialog(
+            onDismissRequest = {
+                popupShow.value.value = false
+            }
+        ) {
             Column(
                 modifier = Modifier
                     .fillMaxWidth()
                     .wrapContentHeight()
-                    .background(Color.Gray, shape = RoundedCornerShape(2.dp)),
+                    .background(
+                        colorResource(id = R.color.white),
+                        shape = RoundedCornerShape(18.dp)
+                    ),
                 verticalArrangement = Arrangement.Center,
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
                 Text(
                     valueOfListIndex,
-                    modifier = Modifier.padding(start = 10.dp, top = 5.dp),
-                    color = Color.White
-                )
-
-
-                Text(
-                    text = valueOfIndex,
-                    modifier = Modifier.padding(10.dp),
+                    modifier = Modifier.padding(start = 10.dp, top = 15.dp, end = 10.dp),
+                    color = Color.Black,
                     fontWeight = FontWeight.Bold,
-                    color = Color.White
                 )
 
-                Button(
-                    onClick = { popupShow.value.value = false },
-                    Modifier.align(Alignment.End),
-                    colors = ButtonDefaults.buttonColors(
-                        colorResource(id = R.color.teal_200)
-                    )
+                Column(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .wrapContentHeight()
+                        .background(
+                            colorResource(id = R.color.white),
+                            shape = RoundedCornerShape(18.dp)
+                        ),
+                    verticalArrangement = Arrangement.Center,
+                    horizontalAlignment = Alignment.CenterHorizontally
                 ) {
-                    Text("Cancel", color = Color.White)
+                    Text(
+                        text = valueOfIndex,
+                        modifier = Modifier.padding(
+                            start = 10.dp,
+                            top = 15.dp,
+                            end = 10.dp,
+                            bottom = 20.dp
+                        ),
+                        fontSize = 18.sp,
+                        color = Color.Black
+                    )
+                }
+                Row(
+                    modifier = Modifier
+                        .fillMaxWidth(),
+                    verticalAlignment = Alignment.Bottom,
+                    horizontalArrangement = Arrangement.End
+                ) {
+
+                    Text(
+                        "Close",
+                        color = colorResource(id = R.color.teal_200),
+                        modifier = Modifier
+                            .padding(bottom = 15.dp, end = 15.dp)
+                            .clickable { popupShow.value.value = false })
+
 
                 }
-
             }
-
+        }
     }
 }
-}
+
 @SuppressLint("CoroutineCreationDuringComposition")
 @Composable
-fun SettingDialogBox(navController: NavController, popUpShow: MutableState<Boolean>, platformIndex:String= "1") {
+fun SettingDialogBox(
+    navController: NavController,
+    popUpShow: MutableState<Boolean>,
+    selectIndexName: String
+) {
     var popupShow = remember {
         mutableStateOf(popUpShow)
     }
     val scope = rememberCoroutineScope()
     val context = LocalContext.current
     val dataStore = UserPreference(context)
-    scope.launch {
-        dataStore.savePlatformIndexStatus(platformIndex)
-    }
+
     if (popupShow.value.value) {
         Dialog(
             onDismissRequest = {
@@ -281,26 +327,31 @@ fun SettingDialogBox(navController: NavController, popUpShow: MutableState<Boole
         ) {
             Card(
                 elevation = 20.dp,
-                shape = RoundedCornerShape(21.dp),
+                shape = RoundedCornerShape(16.dp),
                 modifier = Modifier
                     .wrapContentHeight()
                     .wrapContentWidth()
-                    .padding(10.dp, top = 50.dp, end = 10.dp)
+                    .padding(10.dp, top = 50.dp, end = 10.dp, bottom = 10.dp)
             ) {
                 val gamesOption = listOf("PlayStation", "Xbox", "PC", "Phone")
-                val PlatformIndexInt = platformIndex.toInt()
-                val (selectedOptions, onOptionsSelected) = remember { mutableStateOf(gamesOption[PlatformIndexInt]) }
+
+                val (selectedOptions, onOptionsSelected) = remember { mutableStateOf(selectIndexName) }
 
                 Column(
                     modifier = Modifier
                         .width(400.dp)
                         .wrapContentHeight()
-                        .background(colorResource(id = R.color.teal_200))
-                        .padding(20.dp),
+                        .background(colorResource(id = R.color.teal_200)),
                     horizontalAlignment = Alignment.CenterHorizontally,
                     verticalArrangement = Arrangement.Center
                 ) {
-                    Text("Choose platform", color = Color.White, fontWeight = Bold)
+                    Text(
+                        "Choose platform",
+                        color = Color.White,
+                        fontWeight = Bold,
+                        fontSize = 19.sp,
+                        modifier = Modifier.padding(top = 30.dp, bottom = 20.dp)
+                    )
                     gamesOption.forEach { text ->
                         Row(
                             modifier = Modifier
@@ -308,15 +359,19 @@ fun SettingDialogBox(navController: NavController, popUpShow: MutableState<Boole
                                 .selectable(selected = (text == selectedOptions),
                                     onClick = {
                                         onOptionsSelected(text)
+                                        scope.launch {
+                                            dataStore.savePlatformIndexStatus(text)
+                                        }
                                         navController.navigate(text)
                                     })
-                                .padding(16.dp)
+
                         ) {
 
-                            val context = LocalContext.current
                             RadioButton(
                                 selected = (text == selectedOptions), onClick = {
                                     onOptionsSelected(text)
+
+
                                     navController.navigate(text)
                                 },
                                 colors = RadioButtonDefaults.colors(
@@ -326,7 +381,7 @@ fun SettingDialogBox(navController: NavController, popUpShow: MutableState<Boole
                             )
                             Text(
                                 text = text,
-                                modifier = Modifier.padding(10.dp),
+                                modifier = Modifier.padding(top = 15.dp),
                                 color = Color.White
                             )
 
@@ -336,12 +391,16 @@ fun SettingDialogBox(navController: NavController, popUpShow: MutableState<Boole
 
                     Button(
                         onClick = { popupShow.value.value = false },
-                        Modifier.align(Alignment.End).padding(10.dp),
+                        Modifier
+                            .align(Alignment.End)
+                            .padding(bottom = 25.dp, end = 10.dp, top = 14.dp),
+
+                        shape = RoundedCornerShape(10.dp),
                         colors = ButtonDefaults.buttonColors(
-                            colorResource(id = R.color.teal_200)
+                            colorResource(id = R.color.white)
                         )
                     ) {
-                        Text("Cancel", color = Color.White)
+                        Text("Cancel", color = colorResource(id = R.color.teal_200))
 
                     }
                 }
