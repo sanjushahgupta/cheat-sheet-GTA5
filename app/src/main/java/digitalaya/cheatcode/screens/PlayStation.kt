@@ -75,7 +75,7 @@ fun PlayStation(navController: NavController) {
         stringResource(R.string.SlowMotionPfDetails))
 
     val title = "PlayStation"
-    Scaffold(navController,title,PlayStationList, PlayStationListDetails, "0")
+    Scaffold(navController,title,PlayStationList, PlayStationListDetails)
 
 
 

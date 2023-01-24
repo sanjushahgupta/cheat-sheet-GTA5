@@ -77,7 +77,7 @@ fun Phone(navController: NavController) {
         stringResource(R.string.SlideyCarsPhoneDetails),
         stringResource(R.string.SlowMotionPhoneDetails))
     val title = "Phone"
-    Scaffold(navController,title,PhoneList, PhoneListDetails, "3")
+    Scaffold(navController,title,PhoneList, PhoneListDetails)
 
 
 }

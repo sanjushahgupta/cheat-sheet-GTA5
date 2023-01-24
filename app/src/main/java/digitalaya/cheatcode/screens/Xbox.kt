@@ -21,16 +21,15 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.font.FontWeight.Companion.Bold
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.window.Dialog
 import androidx.navigation.NavController
 import digitalaya.cheatcode.R
 import digitalaya.cheatcode.UserPreference
-import kotlinx.coroutines.async
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
 @SuppressLint("UnusedMaterialScaffoldPaddingParameter", "CoroutineCreationDuringComposition",
-    "SuspiciousIndentation"
-)
+    "SuspiciousIndentation")
+
 @Composable
 fun Xbox(navController: NavController){
     val xboxList = listOf(
@@ -98,25 +97,25 @@ fun Xbox(navController: NavController){
         stringResource(R.string.SlowMotionDetails)
     )
     val title = "Xbox"
-    Scaffold(navController,title,xboxList, xboxListDetails, "1")
+    Scaffold(navController,title,xboxList, xboxListDetails)
 }
 
 @Composable
-fun Scaffold(navController: NavController, title: String, xboxList:List<String>, xboxListDetails:List<String>, Index: String) {
-    val modifier = Modifier
+fun Scaffold(navController: NavController, title: String,list:List<String>, listDetails:List<String>) {
 
+    val modifier = Modifier
     val popUpState = remember { mutableStateOf(false) }
+
     Scaffold(topBar = {
         Divider(color = Color.Black)
         TopAppBar(modifier.fillMaxWidth(),backgroundColor = colorResource(id = R.color.light_green)) {
-            Column {
+
                 Text(
-                    text = "Cheats for GTA 5",
-                    modifier.padding(start = 10.dp,bottom = 5.dp, top = 8.dp),
+                    text = "Cheats for GTA 5 - $title",
+                    modifier.padding(start = 5.dp,bottom = 10.dp, top = 5.dp),
                     fontWeight = FontWeight.Bold
                 )
-                Text(text = title, modifier.padding(start = 10.dp,bottom = 5.dp))
-            }
+
 
             Spacer(modifier.weight(1f))
 
@@ -134,15 +133,18 @@ fun Scaffold(navController: NavController, title: String, xboxList:List<String>,
             modifier
                 .fillMaxSize()
                 .padding(it)
+                .background(Color.White)
                 .clickable(MutableInteractionSource(),
                     indication = null,
-                    onClick = { popUpState.value = false })
+                    onClick = { }
+                )
                 .fillMaxSize()
-        ) { CheatCode(xboxList,xboxListDetails)
-            if (popUpState.value) {
-               PopupWindowDialog(navController, popUpState, Index)
-            }
+        ) {
 
+            CheatCode(list,listDetails)
+            if (popUpState.value) {
+             SettingDialogBox(navController, popUpState)
+            }
         }
     }
 }
@@ -150,41 +152,48 @@ fun Scaffold(navController: NavController, title: String, xboxList:List<String>,
 @Composable
 fun CheatCode(listOfCodes: List<String>, listOfCodesDetails: List<String> ) {
 
-
-    var Index = 0
+    var Indexx = remember{ mutableStateOf(55) }
     val detailsStatus = remember {
         mutableStateOf(false)
     }
-
-
-    Column(
+    Box(
         modifier = Modifier
             .fillMaxSize()
-            .padding(start = 10.dp, end = 10.dp)
+            .padding(start = 15.dp, end = 15.dp)
+
+
     ) {
+        if (detailsStatus.value) {
+
+            DetailsDialogBox(listOfCodesDetails, listOfCodes, Indexx.value, detailsStatus)
+
+        }
         LazyColumn {
-            items(listOfCodes) { item ->
+
+
+            items(listOfCodes) {item ->
+
+
                 Divider()
+
 
                 Column(modifier = Modifier
                     .fillMaxSize()
                     .fillMaxWidth()
                     .clickable {
-                        detailsStatus.value = !detailsStatus.value
+                        detailsStatus.value = true
+                        Indexx.value = listOfCodes.indexOf(item)
                     }) {
 
                     Text(text = item, modifier = Modifier
                         .padding(5.dp)
                         .clickable {
-                            Index = listOfCodes.indexOf(item)
-
-                            // detailsStatus.value = !detailsStatus.value
+                            detailsStatus.value = true
+                            Indexx.value = listOfCodes.indexOf(item)
                         })
-                    Index = listOfCodes.indexOf(item)
-                    PopUpdetails(listOfCodesDetails, Index)
-
 
                 }
+
                 Divider()
 
             }
@@ -192,40 +201,69 @@ fun CheatCode(listOfCodes: List<String>, listOfCodesDetails: List<String> ) {
 
         }
 
-
-    }
-}
-
-@Composable
-fun PopUpdetails(listOfCodesDetails: List<String>, Index: Int) {
-
-    val valueOfIndex = listOfCodesDetails[Index]
-    val cardStatus = remember {
-        mutableStateOf(true)
-    }
-
-
-        Card(elevation = 30.dp,
-            shape = RoundedCornerShape(15.dp),
-            modifier = Modifier
-                .fillMaxWidth()
-                .wrapContentHeight()
-                .padding(bottom = 5.dp),
-            backgroundColor = Color.LightGray
-
-        ) {
-            Text(
-                text = valueOfIndex,
-                modifier = Modifier.padding(5.dp),
-                fontWeight = FontWeight.Bold
-            )
-
         }
-}
 
+    }
+
+
+@OptIn(ExperimentalMaterialApi::class)
+@Composable
+fun DetailsDialogBox(listOfCodesDetails: List<String>, listOfCodes: List<String>, Index: Int, popUpShow: MutableState<Boolean>) {
+
+    var valueOfIndex = listOfCodesDetails[Index]
+    var valueOfListIndex = listOfCodes[Index]
+    var popupShow = remember {
+        mutableStateOf(popUpShow)
+    }
+if(popupShow.value.value){
+    Dialog(
+        onDismissRequest = {
+            popupShow.value.value = false
+        }
+    ) {
+
+
+            Column(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .wrapContentHeight()
+                    .background(Color.Gray, shape = RoundedCornerShape(2.dp)),
+                verticalArrangement = Arrangement.Center,
+                horizontalAlignment = Alignment.CenterHorizontally
+            ) {
+                Text(
+                    valueOfListIndex,
+                    modifier = Modifier.padding(start = 10.dp, top = 5.dp),
+                    color = Color.White
+                )
+
+
+                Text(
+                    text = valueOfIndex,
+                    modifier = Modifier.padding(10.dp),
+                    fontWeight = FontWeight.Bold,
+                    color = Color.White
+                )
+
+                Button(
+                    onClick = { popupShow.value.value = false },
+                    Modifier.align(Alignment.End),
+                    colors = ButtonDefaults.buttonColors(
+                        colorResource(id = R.color.teal_200)
+                    )
+                ) {
+                    Text("Cancel", color = Color.White)
+
+                }
+
+            }
+
+    }
+}
+}
 @SuppressLint("CoroutineCreationDuringComposition")
 @Composable
-fun PopupWindowDialog(navController: NavController, popUpShow: MutableState<Boolean>, platformIndex:String) {
+fun SettingDialogBox(navController: NavController, popUpShow: MutableState<Boolean>, platformIndex:String= "1") {
     var popupShow = remember {
         mutableStateOf(popUpShow)
     }
@@ -236,58 +274,76 @@ fun PopupWindowDialog(navController: NavController, popUpShow: MutableState<Bool
         dataStore.savePlatformIndexStatus(platformIndex)
     }
     if (popupShow.value.value) {
-        Card(
-            elevation = 20.dp,
-            shape = RoundedCornerShape(21.dp),
-            modifier = Modifier
-                .wrapContentHeight()
-                .wrapContentWidth()
-                .padding(10.dp, top = 50.dp, end = 10.dp)
+        Dialog(
+            onDismissRequest = {
+                popupShow.value.value = false
+            }
         ) {
-            val gamesOption = listOf("PlayStation", "Xbox", "PC", "Phone")
-            val PlatformIndexInt = platformIndex.toInt()
-            val (selectedOptions, onOptionsSelected) = remember { mutableStateOf(gamesOption[PlatformIndexInt]) }
-
-            Column(
+            Card(
+                elevation = 20.dp,
+                shape = RoundedCornerShape(21.dp),
                 modifier = Modifier
-                    .width(400.dp)
                     .wrapContentHeight()
-                    .background(colorResource(id = R.color.teal_200))
-                    .padding(20.dp),
-                horizontalAlignment = Alignment.CenterHorizontally,
-                verticalArrangement = Arrangement.Center
+                    .wrapContentWidth()
+                    .padding(10.dp, top = 50.dp, end = 10.dp)
             ) {
-                Text("Choose platform", color = Color.White, fontWeight = Bold)
-                gamesOption.forEach { text ->
-                    Row(
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .selectable(selected = (text == selectedOptions),
-                                onClick = {
+                val gamesOption = listOf("PlayStation", "Xbox", "PC", "Phone")
+                val PlatformIndexInt = platformIndex.toInt()
+                val (selectedOptions, onOptionsSelected) = remember { mutableStateOf(gamesOption[PlatformIndexInt]) }
+
+                Column(
+                    modifier = Modifier
+                        .width(400.dp)
+                        .wrapContentHeight()
+                        .background(colorResource(id = R.color.teal_200))
+                        .padding(20.dp),
+                    horizontalAlignment = Alignment.CenterHorizontally,
+                    verticalArrangement = Arrangement.Center
+                ) {
+                    Text("Choose platform", color = Color.White, fontWeight = Bold)
+                    gamesOption.forEach { text ->
+                        Row(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .selectable(selected = (text == selectedOptions),
+                                    onClick = {
+                                        onOptionsSelected(text)
+                                        navController.navigate(text)
+                                    })
+                                .padding(16.dp)
+                        ) {
+
+                            val context = LocalContext.current
+                            RadioButton(
+                                selected = (text == selectedOptions), onClick = {
                                     onOptionsSelected(text)
                                     navController.navigate(text)
-                                })
-                            .padding(16.dp)
-                    ) {
+                                },
+                                colors = RadioButtonDefaults.colors(
+                                    selectedColor = Color.White,
+                                    unselectedColor = Color.White
+                                )
+                            )
+                            Text(
+                                text = text,
+                                modifier = Modifier.padding(10.dp),
+                                color = Color.White
+                            )
 
-                        val context = LocalContext.current
-                        RadioButton(selected = (text == selectedOptions), onClick = {
-                            onOptionsSelected(text)
-                            navController.navigate(text)
-                        }, 
-                        colors = RadioButtonDefaults.colors(selectedColor = Color.White, unselectedColor = Color.White))
-                        Text(text = text, modifier = Modifier.padding(10.dp), color = Color.White)
+                        }
 
                     }
 
-                }
-
-                Button(onClick = { popupShow.value.value = false }, Modifier.align(Alignment.End), colors = ButtonDefaults.buttonColors(
-                    colorResource(id = R.color.teal_200)
-                )
+                    Button(
+                        onClick = { popupShow.value.value = false },
+                        Modifier.align(Alignment.End).padding(10.dp),
+                        colors = ButtonDefaults.buttonColors(
+                            colorResource(id = R.color.teal_200)
+                        )
                     ) {
-                    Text("Cancel", color = Color.White)
+                        Text("Cancel", color = Color.White)
 
+                    }
                 }
             }
         }

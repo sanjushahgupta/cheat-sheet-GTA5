@@ -12,15 +12,15 @@ val Context.dataStore by preferencesDataStore("user_preferences")
 class UserPreference(val context: Context) {
 
     companion object {
-      val platformIndex = stringPreferencesKey("1")
+      val platformIndex = stringPreferencesKey("")
     }
     val platformIndexStatus: Flow<String?> = context.dataStore.data.map { preferences ->
-        preferences[platformIndex] ?: "1"
+        preferences[platformIndex] ?: ""
 
     }
 
 
-    suspend fun savePlatformIndexStatus(status: String = "1") {
+    suspend fun savePlatformIndexStatus(status: String) {
         context.dataStore.edit { preferences ->
             preferences[platformIndex] = status
         }

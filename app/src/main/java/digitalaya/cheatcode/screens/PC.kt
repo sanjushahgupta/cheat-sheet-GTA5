@@ -78,9 +78,8 @@ fun PC(navController: NavController) {
     digitalaya.cheatcode.screens.Scaffold(
         navController = navController,
         title = "PC",
-        xboxList = PCList,
-        xboxListDetails = PCListDetails,
-        Index = "2"
+    list = PCList,
+        listDetails = PCListDetails,
     )
 
 
