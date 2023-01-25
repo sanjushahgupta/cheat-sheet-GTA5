@@ -1,7 +1,6 @@
 <resources>
     <string name="app_name">GTA 5 Codes</string>
 
-    //XBox
     <string name="Invincibility">Invincibility</string>
     <string name="InvincibilityDetails">RIGHT, A, RIGHT, LEFT, RIGHT, RB, RIGHT, LEFT, A, Y</string>
 
@@ -35,7 +34,7 @@
     <string name="ExplosiveMeleeAttacks">Explosive Melee Attacks</string>
     <string name="ExplosiveMeleeAttacksDetails">RIGHT, LEFT, A, Y, RB, B, B, B, LT</string>
 
-    <string name="ExplosiveBullets">Bang Bang(ExplosiveBullets)</string>
+    <string name="ExplosiveBullets">Bang Bang (ExplosiveBullets)</string>
     <string name="ExplosiveBulletsDetails">RIGHT, X, A, LEFT, RB, RT, LEFT, RIGHT, RIGHT, LB, LB, LB</string>
 
     <string name="FlamingBullets">Flaming Bullets</string>
@@ -85,7 +84,7 @@
     <string name="SpawnDuster">Spawn Duster</string>
     <string name="SpawnDusterDetails">RIGHT, LEFT, RB, RB, RB, LEFT, Y, Y, A, B, LB, LB</string>
 
-    <string name="SpawnPCJ">Spawn PCJ-600</string>
+    <string name="SpawnPCJ">Spawn PCJ</string>
     <string name="SpawnPCJDetails">RB, RIGHT, LEFT, RIGHT, RT, LEFT, RIGHT, X, RIGHT, LT, LB, LB</string>
 
 

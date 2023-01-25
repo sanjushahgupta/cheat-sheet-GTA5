@@ -20,6 +20,9 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.font.FontWeight.Companion.Bold
+import androidx.compose.ui.text.font.FontWeight.Companion.SemiBold
+import androidx.compose.ui.text.font.FontWeight.Companion.Thin
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.window.Dialog
@@ -122,9 +125,10 @@ fun Scaffold(
         ) {
 
             Text(
-                text = "Cheats  for  GTA 5  -  $title",
-                modifier.padding(start = 15.dp, bottom = 10.dp, top = 5.dp),
-                fontWeight = FontWeight.Bold,
+                text = "Cheat codes for GTA 5 - $title",
+                modifier.padding(start = 10.dp, bottom = 10.dp, top = 5.dp),
+                fontWeight = FontWeight.SemiBold,
+                fontSize = 17.sp,
                 color = Color.White
             )
 
@@ -174,7 +178,7 @@ fun CheatCode(listOfCodes: List<String>, listOfCodesDetails: List<String>) {
     Box(
         modifier = Modifier
             .fillMaxSize()
-            .padding(start = 15.dp, end = 15.dp)
+            .padding(start = 10.dp, end = 15.dp)
 
 
     ) {
@@ -205,7 +209,8 @@ fun CheatCode(listOfCodes: List<String>, listOfCodesDetails: List<String>) {
                         .clickable {
                             detailsStatus.value = true
                             Indexx.value = listOfCodes.indexOf(item)
-                        }
+                        },
+                        fontSize = 17.sp
 
                     )
 
@@ -249,41 +254,25 @@ fun DetailsDialogBox(
                     .wrapContentHeight()
                     .background(
                         colorResource(id = R.color.white),
-                        shape = RoundedCornerShape(18.dp)
+                        shape = RoundedCornerShape(12.dp)
                     ),
                 verticalArrangement = Arrangement.Center,
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
                 Text(
                     valueOfListIndex,
-                    modifier = Modifier.padding(start = 10.dp, top = 15.dp, end = 10.dp),
-                    color = Color.Black,
-                    fontWeight = FontWeight.Bold,
+                    modifier = Modifier.padding( top = 20.dp),
+                    fontWeight = FontWeight.SemiBold,
+                    textAlign = TextAlign.Center,
+                    fontSize = 18.sp
                 )
-
-                Column(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .wrapContentHeight()
-                        .background(
-                            colorResource(id = R.color.white),
-                            shape = RoundedCornerShape(18.dp)
-                        ),
-                    verticalArrangement = Arrangement.Center,
-                    horizontalAlignment = Alignment.CenterHorizontally
-                ) {
                     Text(
                         text = valueOfIndex,
-                        modifier = Modifier.padding(
-                            start = 10.dp,
-                            top = 15.dp,
-                            end = 10.dp,
-                            bottom = 20.dp
-                        ),
-                        fontSize = 18.sp,
-                        color = Color.Black
+                        modifier = Modifier.padding(start = 10.dp, top = 15.dp, end = 10.dp, bottom = 15.dp),
+                        textAlign = TextAlign.Center,
+                        fontSize = 17.sp
                     )
-                }
+
                 Row(
                     modifier = Modifier
                         .fillMaxWidth(),
@@ -294,8 +283,10 @@ fun DetailsDialogBox(
                     Text(
                         "Close",
                         color = colorResource(id = R.color.teal_200),
+                        fontWeight = SemiBold,
+                        fontSize = 16.sp,
                         modifier = Modifier
-                            .padding(bottom = 15.dp, end = 15.dp)
+                            .padding(top = 15.dp, bottom = 10.dp, end = 10.dp)
                             .clickable { popupShow.value.value = false })
 
 
@@ -327,11 +318,11 @@ fun SettingDialogBox(
         ) {
             Card(
                 elevation = 20.dp,
-                shape = RoundedCornerShape(16.dp),
+                shape = RoundedCornerShape(10.dp),
                 modifier = Modifier
                     .wrapContentHeight()
                     .wrapContentWidth()
-                    .padding(10.dp, top = 50.dp, end = 10.dp, bottom = 10.dp)
+                 //   .padding(10.dp, end = 10.dp, bottom = 10.dp)
             ) {
                 val gamesOption = listOf("PlayStation", "Xbox", "PC", "Phone")
 
@@ -339,19 +330,21 @@ fun SettingDialogBox(
 
                 Column(
                     modifier = Modifier
-                        .width(400.dp)
+                        .wrapContentWidth()
                         .wrapContentHeight()
                         .background(colorResource(id = R.color.teal_200)),
                     horizontalAlignment = Alignment.CenterHorizontally,
                     verticalArrangement = Arrangement.Center
                 ) {
+                 
                     Text(
-                        "Choose platform",
+                        "Platform",
                         color = Color.White,
-                        fontWeight = Bold,
+                        fontWeight = SemiBold,
                         fontSize = 19.sp,
-                        modifier = Modifier.padding(top = 30.dp, bottom = 20.dp)
+                        modifier = Modifier.padding(top = 10.dp, bottom = 10.dp),
                     )
+                 
                     gamesOption.forEach { text ->
                         Row(
                             modifier = Modifier
@@ -361,48 +354,59 @@ fun SettingDialogBox(
                                         onOptionsSelected(text)
                                         scope.launch {
                                             dataStore.savePlatformIndexStatus(text)
+                                            navController.navigate(text)
                                         }
-                                        navController.navigate(text)
+
                                     })
 
                         ) {
 
                             RadioButton(
-                                selected = (text == selectedOptions), onClick = {
-                                    onOptionsSelected(text)
 
-
-                                    navController.navigate(text)
-                                },
                                 colors = RadioButtonDefaults.colors(
                                     selectedColor = Color.White,
                                     unselectedColor = Color.White
-                                )
+                                ),
+                                selected = (text == selectedOptions), onClick = {
+                                    onOptionsSelected(text)
+                                    scope.launch {
+                                        dataStore.savePlatformIndexStatus(text)
+                                        navController.navigate(text)
+                                    }
+
+
+                                }
                             )
                             Text(
                                 text = text,
-                                modifier = Modifier.padding(top = 15.dp),
-                                color = Color.White
+                               modifier = Modifier.padding(top =10.dp),
+                                color = Color.White,
+                                fontSize = 17.sp
                             )
 
                         }
 
+
                     }
-
-                    Button(
-                        onClick = { popupShow.value.value = false },
-                        Modifier
-                            .align(Alignment.End)
-                            .padding(bottom = 25.dp, end = 10.dp, top = 14.dp),
-
-                        shape = RoundedCornerShape(10.dp),
-                        colors = ButtonDefaults.buttonColors(
-                            colorResource(id = R.color.white)
-                        )
+                    Row(
+                        modifier = Modifier
+                            .fillMaxWidth(),
+                        verticalAlignment = Alignment.Bottom,
+                        horizontalArrangement = Arrangement.End
                     ) {
-                        Text("Cancel", color = colorResource(id = R.color.teal_200))
+
+                        Text(
+                            "Close",
+                            color = Color.White,
+                            fontWeight = SemiBold,
+                            fontSize = 16.sp,
+                            modifier = Modifier
+                                .padding(top = 15.dp, bottom = 15.dp, end = 15.dp)
+                                .clickable { popupShow.value.value = false })
+
 
                     }
+
                 }
             }
         }

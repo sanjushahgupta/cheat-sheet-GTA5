@@ -54,7 +54,7 @@ fun PC(navController: NavController) {
         stringResource(R.string.POWERUPPcDetails),
         stringResource(R.string.SKYFALLPcDetails),
         stringResource(R.string.HOTHANDSPcDetails),
-        stringResource(R.string.FlamingBulletsDetails),
+        stringResource(R.string.INCENDIARYPcDetails),
         stringResource(R.string.HIGHEXPcDetails),
         stringResource(R.string.INCENDIARYPcDetails),
         stringResource(R.string.DEADEYEPcDetails),

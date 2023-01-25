@@ -1,10 +1,12 @@
 package digitalaya.cheatcode.navigation
 
+import androidx.activity.compose.BackHandler
 import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import digitalaya.cheatcode.screens.*
+import kotlin.system.exitProcess
 
 @Composable
 fun navigationNavController() {
@@ -14,6 +16,9 @@ fun navigationNavController() {
 
         composable("Welcome") {
             WelcomeScreen(navController = navController)
+            BackHandler() {
+                exitProcess(1)
+            }
 
         }
 
@@ -21,18 +26,32 @@ fun navigationNavController() {
 
         composable("Xbox") {
             Xbox(navController = navController)
+            BackHandler() {
+                exitProcess(1)
+            }
         }
 
         composable("PlayStation") {
             PlayStation(navController = navController)
+            BackHandler() {
+                exitProcess(1)
+            }
         }
 
         composable("Phone") {
             Phone(navController = navController)
+
+            BackHandler() {
+
+                exitProcess(1)
+            }
         }
 
         composable("PC") {
             PC(navController = navController)
+            BackHandler() {
+                exitProcess(1)
+            }
         }
 
 

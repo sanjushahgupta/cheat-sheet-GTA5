@@ -31,14 +31,10 @@ import kotlinx.coroutines.launch
 @SuppressLint("CoroutineCreationDuringComposition")
 @Composable
 fun WelcomeScreen(navController: NavController) {
-
-    val context = LocalContext.current
-    val scope = rememberCoroutineScope()
-    val dataStore = UserPreference(context)
     Column(
         modifier = Modifier
             .fillMaxWidth()
-            .fillMaxHeight(0.7f)
+            .fillMaxHeight()
             .padding(start = 10.dp, end = 10.dp),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
@@ -46,20 +42,25 @@ fun WelcomeScreen(navController: NavController) {
 
         androidx.compose.foundation.Image(
             painter = painterResource(id = R.drawable.gtalogoo),
-            contentDescription = "",
-
-            )
+            contentDescription = ""
+        )
         Text("Cheat codes for GTA 5", color = colorResource(id = R.color.teal_200))
         Spacer(modifier = Modifier.padding(top = 30.dp))
-        var status = remember { mutableStateOf(false) }
 
+
+    }
+    val context = LocalContext.current
+    val scope = rememberCoroutineScope()
+    val dataStore = UserPreference(context)
+
+    var status = remember { mutableStateOf(false) }
 
         scope.launch {
             dataStore.platformIndexStatus.collect {
                 val platform = it.toString()
 
                 async {
-                    delay(700)
+                  delay(700)
 
                     if (platform.equals("PlayStation")) {
                         navController.navigate("PlayStation")
@@ -79,12 +80,13 @@ fun WelcomeScreen(navController: NavController) {
         }
 
 
-
         if (status.value == true) {
+            var x = remember{ mutableStateOf(true)}
+           // SettingDialogBox(navController = navController, popUpShow = x, selectIndexName = "8")
             PopupWindowDialogWelcome(navController)
         }
 
-    }
+
 }
 
 @SuppressLint("CoroutineCreationDuringComposition")
@@ -94,13 +96,30 @@ fun PopupWindowDialogWelcome(navController: NavController) {
     val context = LocalContext.current
     val dataStore = UserPreference(context)
 
+    Column(
+        modifier = Modifier
+            .fillMaxWidth()
+            .fillMaxHeight()
+            .padding(start = 10.dp, end = 10.dp, top = 80.dp),
+        verticalArrangement = Arrangement.Top,
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
 
+        androidx.compose.foundation.Image(
+            painter = painterResource(id = R.drawable.gtalogoo),
+            contentDescription = ""
+        )
+        Text("Cheat codes for GTA 5", color = colorResource(id = R.color.teal_200))
+        //  Spacer(modifier = Modifier.padding(top = 20.dp))
+
+
+    }
 
     Column(
         modifier = Modifier
-            .wrapContentHeight()
-            .wrapContentWidth()
-            .padding(start = 10.dp, end = 10.dp, top = 20.dp),
+            .fillMaxHeight()
+            .fillMaxWidth()
+            .padding(start = 10.dp, end = 10.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
 
@@ -119,7 +138,7 @@ fun PopupWindowDialogWelcome(navController: NavController) {
             verticalArrangement = Arrangement.Center
         ) {
             Text(
-                "Select platform",
+                "Platform",
                 color = Color.White,
                 fontWeight = FontWeight.Bold,
                 fontSize = 17.sp,
@@ -143,14 +162,21 @@ fun PopupWindowDialogWelcome(navController: NavController) {
                 ) {
 
                     RadioButton(
+                         colors = RadioButtonDefaults.colors(unselectedColor = Color.White),
                         selected = (text == selectedOptions), onClick = {
                             onOptionsSelected(text)
-                        }, colors = RadioButtonDefaults.colors(unselectedColor = Color.White)
+                            scope.launch {
+                                dataStore.savePlatformIndexStatus(text)
+                                navController.navigate(text)
+                            }
+                        }
+
+
                     )
 
                     Text(
                         text = text,
-                        modifier = Modifier.padding(top = 12.dp),
+                        modifier = Modifier.padding(top = 14.dp),
                         color = Color.White,
                         fontWeight = FontWeight.SemiBold
                     )

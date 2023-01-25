@@ -10,7 +10,7 @@
     <string name="RaiseWantedLevelPf">Raise Wanted Level</string>
     <string name="RaiseWantedLevelPfDetails">R1, R1, CIRCLE, R2, LEFT, RIGHT, LEFT, RIGHT, LEFT, RIGHT</string>
     <string name="LowerWantedLevelPf">Lower Wanted Level</string>
-    <string name="LowerWantedLevelPfDetails">: R1, R1, CIRCLE, R2, RIGHT, LEFT, RIGHT, LEFT, RIGHT, LEFT</string>
+    <string name="LowerWantedLevelPfDetails">R1, R1, CIRCLE, R2, RIGHT, LEFT, RIGHT, LEFT, RIGHT, LEFT</string>
     <string name="FastRunPf">Fast Run</string>
     <string name="FastRunPfDetails">TRIANGLE, LEFT, RIGHT, RIGHT, L2, L1, SQUARE</string>
     <string name="SuperJumpPf">Super Jump</string>
@@ -35,7 +35,7 @@
     <string name="GiveWeaponsandAmmoPfDetails">TRIANGLE, R2, LEFT, L1, X, RIGHT, TRIANGLE, DOWN, SQUARE, L1, L1, L1</string>
     <string name="GiveParachutePf">Give Parachute</string>
     <string name="GiveParachutePfDetails">LEFT, RIGHT, L1, L2, R1, R2, R2, LEFT, LEFT, RIGHT, L1</string>
-    <string name="SpawnBuzzardPf">Spawn Buzzard(Attack Helicopter)</string>
+    <string name="SpawnBuzzardPf">Spawn Buzzard (Attack Helicopter)</string>
     <string name="SpawnBuzzardPfDetails">CIRCLE, CIRCLE, L1, CIRCLE, CIRCLE, CIRCLE, L1, L2, R1, TRIANGLE, CIRCLE, TRIANGLE</string>
     <string name="SpawnCometPf">Spawn Comet</string>
     <string name="SpawnCometfPfDetails">R1, CIRCLE, R2, RIGHT, L1, L2, X, X, SQUARE, R1</string>
@@ -49,7 +49,7 @@
     <string name="SpawnStuntPlanePfDetails"> CIRCLE, RIGHT, L1, L2, LEFT, R1, L1, L1, LEFT, LEFT, X, TRIANGLE</string>
     <string name="SpawnCaddyPf">Spawn Caddy</string>
     <string name="SpawnCaddyPfDetails">CIRCLE, L1, LEFT, R1, L2, X, R1, L1, CIRCLE, X</string>
-    <string name="SpawnRapidGTPf">SpawnRapidGT</string>
+    <string name="SpawnRapidGTPf">Spawn Rapid GT</string>
     <string name="SpawnRapidGTPfDetails">R2, L1, CIRCLE, RIGHT, L1, R1, RIGHT, LEFT, CIRCLE, R2</string>
     <string name="SpawnDusterPf">Spawn Duster</string>
     <string name="SpawnDusterPfDetails">RIGHT, LEFT, R1, R1, R1, LEFT, TRIANGLE, TRIANGLE, X, CIRCLE, L1, L1</string>

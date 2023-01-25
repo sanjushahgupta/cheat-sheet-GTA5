@@ -34,7 +34,7 @@
     <string name="GiveWeaponsandAmmoPhoneDetails">1-999-866-587 (TOOLUP)</string>
     <string name="GiveParachutePhone">Give Parachute</string>
     <string name="GiveParachutePhoneDetails">1-999-759-3483 (SKY-DIVE)</string>
-    <string name="SpawnBuzzardPhone">Spawn Buzzard(Attack Helicopter)</string>
+    <string name="SpawnBuzzardPhone">Spawn Buzzard (Attack Helicopter)</string>
     <string name="SpawnBuzzardPhoneDetails">1-999-289-9633 (BUZZ-OFF)</string>
     <string name="SpawnCometPhone">Spawn Comet</string>
     <string name="SpawnCometfPhoneDetails">1-999-266-38 (COMET)</string>
@@ -48,7 +48,7 @@
     <string name="SpawnStuntPlanePhoneDetails"> 1-999-2276-78676 (BARN STORM)</string>
     <string name="SpawnCaddyPhone">Spawn Caddy</string>
     <string name="SpawnCaddyPhoneDetails">1-999-465-3461 (HOLEIN1)</string>
-    <string name="SpawnRapidGTPhone">SpawnRapidGT</string>
+    <string name="SpawnRapidGTPhone">Spawn Rapid GT</string>
     <string name="SpawnRapidGTPhoneDetails">1-999-727-4348 (RAPID-GT)</string>
     <string name="SpawnDusterPhone">Spawn Duster</string>
     <string name="SpawnDusterPhoneDetails">1-999-359-77729 (FLYSPRAY)</string>
