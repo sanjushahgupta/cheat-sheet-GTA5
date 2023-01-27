@@ -40,54 +40,53 @@ fun WelcomeScreen(navController: NavController) {
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
 
+
         androidx.compose.foundation.Image(
-            painter = painterResource(id = R.drawable.gtalogoo),
-            contentDescription = ""
+            painter = painterResource(id = R.drawable.logops),
+            contentDescription = "", modifier = Modifier.size(900.dp)
         )
-        Text("Cheat codes for GTA 5", color = colorResource(id = R.color.teal_200))
-        Spacer(modifier = Modifier.padding(top = 30.dp))
 
 
     }
+
     val context = LocalContext.current
     val scope = rememberCoroutineScope()
     val dataStore = UserPreference(context)
 
     var status = remember { mutableStateOf(false) }
 
-        scope.launch {
-            dataStore.platformIndexStatus.collect {
-                val platform = it.toString()
+    scope.launch {
+        dataStore.platformIndexStatus.collect {
+            val platform = it.toString()
 
-                async {
-                  delay(700)
+            async {
+                delay(700)
 
-                    if (platform.equals("PlayStation")) {
-                        navController.navigate("PlayStation")
-                    } else if (platform.equals("Xbox")) {
-                        navController.navigate("Xbox")
-                    } else if (platform.equals("PC")) {
-                        navController.navigate("PC")
-                    } else if (platform.equals("Phone")) {
-                        navController.navigate("Phone")
-                    } else {
-                        status.value = true
-                    }
+                if (platform.equals("PlayStation")) {
+                    navController.navigate("PlayStation")
+                } else if (platform.equals("Xbox")) {
+                    navController.navigate("Xbox")
+                } else if (platform.equals("PC")) {
+                    navController.navigate("PC")
+                } else if (platform.equals("Phone")) {
+                    navController.navigate("Phone")
+                } else {
+                    status.value = true
+                }
 
-                }.await()
+            }.await()
 
-            }
         }
+    }
 
 
-        if (status.value == true) {
-            var x = remember{ mutableStateOf(true)}
-           // SettingDialogBox(navController = navController, popUpShow = x, selectIndexName = "8")
-            PopupWindowDialogWelcome(navController)
-        }
+    if (status.value == true) {
+        PopupWindowDialogWelcome(navController)
+    }
 
 
 }
+
 
 @SuppressLint("CoroutineCreationDuringComposition")
 @Composable
@@ -100,33 +99,35 @@ fun PopupWindowDialogWelcome(navController: NavController) {
         modifier = Modifier
             .fillMaxWidth()
             .fillMaxHeight()
-            .padding(start = 10.dp, end = 10.dp, top = 80.dp),
+            .padding(end = 10.dp, start = 10.dp, top = 80.dp),
         verticalArrangement = Arrangement.Top,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
 
+
         androidx.compose.foundation.Image(
-            painter = painterResource(id = R.drawable.gtalogoo),
+            painter = painterResource(id = R.drawable.logops),
             contentDescription = ""
         )
-        Text("Cheat codes for GTA 5", color = colorResource(id = R.color.teal_200))
-        //  Spacer(modifier = Modifier.padding(top = 20.dp))
-
 
     }
+
+
 
     Column(
         modifier = Modifier
             .fillMaxHeight()
             .fillMaxWidth()
-            .padding(start = 10.dp, end = 10.dp),
+            .padding(start = 10.dp, end = 10.dp, top = 160.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.Center
+        verticalArrangement = Arrangement.Top
 
     ) {
 
+
         val gamesOption = listOf("PlayStation", "Xbox", "PC", "Phone")
         val (selectedOptions, onOptionsSelected) = remember { mutableStateOf("") }
+
         Column(
             modifier = Modifier
                 .width(400.dp)
@@ -162,7 +163,7 @@ fun PopupWindowDialogWelcome(navController: NavController) {
                 ) {
 
                     RadioButton(
-                         colors = RadioButtonDefaults.colors(unselectedColor = Color.White),
+                        colors = RadioButtonDefaults.colors(unselectedColor = Color.White),
                         selected = (text == selectedOptions), onClick = {
                             onOptionsSelected(text)
                             scope.launch {

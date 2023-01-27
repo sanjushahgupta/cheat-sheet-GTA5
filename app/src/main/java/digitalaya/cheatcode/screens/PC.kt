@@ -20,9 +20,8 @@ fun PC(navController: NavController) {
         stringResource(R.string.POWERUPPc),
         stringResource(R.string.SKYFALLPc),
         stringResource(R.string.HOTHANDSPc),
-        stringResource(R.string.FlamingBullets),
         stringResource(R.string.HIGHEXPc),
-        stringResource(R.string.INCENDIARYPc),
+        stringResource(R.string.FlamingBullets),
         stringResource(R.string.DEADEYEPc),
         stringResource(R.string.LIQUORPc),
         stringResource(R.string.TOOLUPPc),
@@ -54,7 +53,6 @@ fun PC(navController: NavController) {
         stringResource(R.string.POWERUPPcDetails),
         stringResource(R.string.SKYFALLPcDetails),
         stringResource(R.string.HOTHANDSPcDetails),
-        stringResource(R.string.INCENDIARYPcDetails),
         stringResource(R.string.HIGHEXPcDetails),
         stringResource(R.string.INCENDIARYPcDetails),
         stringResource(R.string.DEADEYEPcDetails),
@@ -81,7 +79,6 @@ fun PC(navController: NavController) {
     digitalaya.cheatcode.screens.Scaffold(
         navController = navController,
         title = "PC",
-
         list = PCList,
         listDetails = PCListDetails,
 

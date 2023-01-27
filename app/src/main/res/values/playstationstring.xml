@@ -14,13 +14,13 @@
     <string name="FastRunPf">Fast Run</string>
     <string name="FastRunPfDetails">TRIANGLE, LEFT, RIGHT, RIGHT, L2, L1, SQUARE</string>
     <string name="SuperJumpPf">Super Jump</string>
-    <string name="SuperJumpPfDetails">LEFT, LEFT, TRIANGLE, TRIANGLE, RIGHT, RIGHT, LEFT, RIGHT, SQUARE, R1, R2  </string>
+    <string name="SuperJumpPfDetails">LEFT, LEFT, TRIANGLE, TRIANGLE, RIGHT, RIGHT, LEFT, RIGHT, SQUARE, R1, R2 </string>
     <string name="FastSwimPf">Fast Swim</string>
     <string name="FastSwimPfDetails">LEFT, LEFT, L1, RIGHT, RIGHT, R2, LEFT, L2, RIGHT</string>
     <string name="RechargeAbilityPf">Recharge Ability</string>
     <string name="RechargeAbilityPfDetails">X, X, SQUARE, R1, L1, X, RIGHT, LEFT, X</string>
     <string name="SkyfallPf">Skyfall</string>
-    <string name="SkyfallPfDetails">L1, L2, R1, R2, LEFT, RIGHT,LEFT, RIGHT,L1, L2, R1, R2,LEFT, RIGHT,LEFT, RIGHT  </string>
+    <string name="SkyfallPfDetails">L1, L2, R1, R2, LEFT, RIGHT,LEFT, RIGHT,L1, L2, R1, R2,LEFT, RIGHT,LEFT, RIGHT </string>
     <string name="ExplosiveMeleeAttacksPf">Explosive Melee Attacks</string>
     <string name="ExplosiveMeleeAttacksPfDetails">RIGHT, LEFT, X, TRIANGLE, R1, CIRCLE, CIRCLE, CIRCLE, L2</string>
     <string name="BangBangPf">Bang Bang (Explosive Bullets)</string>

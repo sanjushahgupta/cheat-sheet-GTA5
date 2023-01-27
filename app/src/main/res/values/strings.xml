@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">GTA 5 Codes</string>
+    <string name="app_name">GT5 Codes </string>
 
     <string name="Invincibility">Invincibility</string>
     <string name="InvincibilityDetails">RIGHT, A, RIGHT, LEFT, RIGHT, RB, RIGHT, LEFT, A, Y</string>
@@ -34,7 +34,7 @@
     <string name="ExplosiveMeleeAttacks">Explosive Melee Attacks</string>
     <string name="ExplosiveMeleeAttacksDetails">RIGHT, LEFT, A, Y, RB, B, B, B, LT</string>
 
-    <string name="ExplosiveBullets">Bang Bang (ExplosiveBullets)</string>
+    <string name="ExplosiveBullets">Bang Bang (Explosive Bullets)</string>
     <string name="ExplosiveBulletsDetails">RIGHT, X, A, LEFT, RB, RT, LEFT, RIGHT, RIGHT, LB, LB, LB</string>
 
     <string name="FlamingBullets">Flaming Bullets</string>
@@ -51,7 +51,7 @@
     <string name="Weapons">Give Weapons and Ammo</string>
     <string name="WeaponsDetails">Y, RT, LEFT, LB, A, RIGHT, Y, DOWN, X, LB, LB, LB</string>
 
-    <string name="GiveParachute">Drunk Mode</string>
+    <string name="GiveParachute">Give Parachute</string>
     <string name="GiveParachuteDetails">LEFT, RIGHT, LB, LT, RB, RT, RT, LEFT, LEFT, RIGHT, LB</string>
 
 

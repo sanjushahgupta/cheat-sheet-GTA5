@@ -49,6 +49,7 @@ fun Xbox(navController: NavController) {
         stringResource(R.string.FastSwim),
         stringResource(R.string.RechargeAbility),
         stringResource(R.string.Skyfall),
+        stringResource(R.string.ExplosiveMeleeAttacks),
         stringResource(R.string.ExplosiveBullets),
         stringResource(R.string.FlamingBullets),
         stringResource(R.string.SlowMotionAim),
@@ -81,6 +82,7 @@ fun Xbox(navController: NavController) {
         stringResource(R.string.FastSwimDetails),
         stringResource(R.string.RechargeAbilityDetails),
         stringResource(R.string.SkyfallDetails),
+        stringResource(R.string.ExplosiveMeleeAttacksDetails),
         stringResource(R.string.ExplosiveBulletsDetails),
         stringResource(R.string.FlamingBulletsDetails),
         stringResource(R.string.SlowMotionAimDetails),
@@ -125,7 +127,7 @@ fun Scaffold(
         ) {
 
             Text(
-                text = "Cheat codes for GTA 5 - $title",
+                text = "GT 5 Cheat Codes - $title",
                 modifier.padding(start = 10.dp, bottom = 10.dp, top = 5.dp),
                 fontWeight = FontWeight.SemiBold,
                 fontSize = 17.sp,
@@ -403,8 +405,6 @@ fun SettingDialogBox(
                             modifier = Modifier
                                 .padding(top = 15.dp, bottom = 15.dp, end = 15.dp)
                                 .clickable { popupShow.value.value = false })
-
-
                     }
 
                 }

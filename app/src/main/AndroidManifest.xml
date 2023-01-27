@@ -5,9 +5,9 @@
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
-        android:icon="@drawable/ic_launcher_foreground_gtaa"
+        android:icon="@drawable/ic_launcher_foregroundlogo"
         android:label="@string/app_name"
-        android:roundIcon="@drawable/ic_launcher_foreground_gtaa"
+        android:roundIcon="@drawable/ic_launcher_foregroundlogo"
         android:supportsRtl="true"
         android:theme="@style/Theme.CheatCode"
         tools:targetApi="31">
