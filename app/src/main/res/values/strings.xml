@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">GT5 Codes </string>
+    <string name="app_name">Auto Codes</string>
 
     <string name="Invincibility">Invincibility</string>
     <string name="InvincibilityDetails">RIGHT, A, RIGHT, LEFT, RIGHT, RB, RIGHT, LEFT, A, Y</string>
