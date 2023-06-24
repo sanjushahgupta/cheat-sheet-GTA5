@@ -12,8 +12,7 @@ An app that has cheat codes for GTA 5 on different platforms such as Xbox, Plays
 ## OverView
 
 ### Screenshot
-![gta](https://github.com/sanjushahgupta/cheat-sheet-GTA5/assets/71315276/4f00e6cb-d613-41d3-930f-716f04bb9162)
-
+<img width="300" alt="Screenshot 2023-06-24 at 17 37 08" src="https://github.com/sanjushahgupta/cheat-sheet-GTA5/assets/71315276/1edf1217-1789-4980-8d91-ac07c0d2de3b">
 
 ### Link
 - Live App: [GTA5](https://play.google.com/store/apps/details?id=digitalaya.grantcodes)
